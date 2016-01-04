@@ -1,25 +1,311 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hot-ss-x3K">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Introduction-VC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Introduction-VC" id="BYZ-38-t0r" customClass="ViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-Ic-Zw3">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSc-cA-WAe">
+                                <rect key="frame" x="255" y="942" width="258" height="38"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cwm-3g-lGu" kind="push" id="zt1-8p-VkL"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jT-zz-7DQ">
+                                <rect key="frame" x="98" y="672" width="256" height="256"/>
+                                <animations/>
+                                <state key="normal" image="cameraButton.png"/>
+                                <connections>
+                                    <action selector="cameraPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="liZ-xG-lXB"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PW0-1u-Nzr">
+                                <rect key="frame" x="20" y="779" width="225" height="225"/>
+                                <animations/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-0O-5XB">
+                                <rect key="frame" x="425" y="672" width="256" height="256"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="recordButton.png"/>
+                                <connections>
+                                    <action selector="videoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQl-su-cK6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeD-y1-qBu">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="80"/>
+                                <animations/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt6-AT-uWe">
+                                <rect key="frame" x="264" y="0.0" width="256" height="80"/>
+                                <animations/>
+                                <state key="normal" title="Instruction">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KPJ-gf-mgC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlR-eU-dvB">
+                                <rect key="frame" x="512" y="0.0" width="256" height="80"/>
+                                <animations/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kn6-w8-wVO">
+                                <rect key="frame" x="271" y="101" width="226" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Photo"/>
+                                    <segment title="Video"/>
+                                </segments>
+                            </segmentedControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNc-T1-dVP">
+                                <rect key="frame" x="134" y="165" width="500" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.4549019608" green="0.74117647060000003" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
+                        </subviews>
+                        <animations/>
                     </view>
+                    <navigationItem key="navigationItem" id="da2-PO-kaP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="7jT-zz-7DQ" id="QVE-XT-nw9"/>
+                        <outlet property="continueButton" destination="eSc-cA-WAe" id="7SJ-8K-fUc"/>
+                        <outlet property="imageViewTemp" destination="PW0-1u-Nzr" id="cJH-kj-48F"/>
+                        <outlet property="introButton" destination="mt6-AT-uWe" id="CdH-hc-0LT"/>
+                        <outlet property="recordButton" destination="w9h-0O-5XB" id="Yvc-Om-tlC"/>
+                        <outlet property="scrollView" destination="gNc-T1-dVP" id="sPc-CS-hp7"/>
+                        <outlet property="segmentedControl" destination="kn6-w8-wVO" id="fBs-iE-FKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1370" y="713"/>
+        </scene>
+        <!--Stations View Controller-->
+        <scene sceneID="PcU-LQ-fjb">
+            <objects>
+                <viewController id="cwm-3g-lGu" customClass="StationsViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C0e-2E-Ya9"/>
+                        <viewControllerLayoutGuide type="bottom" id="CNp-E7-Wol"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DWO-Vg-Her">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
+                                <rect key="frame" x="303" y="163" width="162" height="162"/>
+                                <animations/>
+                                <state key="normal" title="Station 1" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationThree" id="dib-cK-xW2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-eo-QaU">
+                                <rect key="frame" x="303" y="390" width="162" height="162"/>
+                                <animations/>
+                                <state key="normal" title="Station 2" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationTwo" id="Ms2-9e-4By"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-cv-T4z">
+                                <rect key="frame" x="303" y="623" width="162" height="162"/>
+                                <animations/>
+                                <state key="normal" title="Station 3" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationOne" id="oCc-8R-sbT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sm9-kk-vAG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1e-Sl-Ewy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2336" y="713"/>
+        </scene>
+        <!--Station View Controller-->
+        <scene sceneID="Ptp-Ew-HlY">
+            <objects>
+                <viewController id="viT-2d-iQn" customClass="StationViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tPO-0A-Omd"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFU-JQ-vvG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lJM-Oe-fUt">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Station" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aQ-Og-sbG">
+                                <rect key="frame" x="310" y="20" width="149" height="39"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIM-2c-q8a">
+                                <rect key="frame" x="134" y="173" width="500" height="500"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gb-zX-G7E">
+                                <rect key="frame" x="420" y="689" width="256" height="256"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="recordButton.png"/>
+                                <connections>
+                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cgM-4B-R60"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTD-Of-SNh">
+                                <rect key="frame" x="93" y="689" width="256" height="256"/>
+                                <animations/>
+                                <state key="normal" image="cameraButton.png"/>
+                                <connections>
+                                    <action selector="cameraPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="Qk9-b7-0Ei"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLM-jF-NOT">
+                                <rect key="frame" x="35" y="20" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="viT-2d-iQn" eventType="touchUpInside" id="aw2-9k-LfX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRS-9P-siM">
+                                <rect key="frame" x="68" y="74" width="100" height="100"/>
+                                <animations/>
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="I73-uW-J4f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-Xt-scl">
+                                <rect key="frame" x="248" y="74" width="100" height="100"/>
+                                <animations/>
+                                <state key="normal" title="2"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="JTx-so-Qpg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd3-Vz-c9W">
+                                <rect key="frame" x="434" y="74" width="100" height="100"/>
+                                <animations/>
+                                <state key="normal" title="3"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="fos-T1-miH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ig-2t-95Z">
+                                <rect key="frame" x="617" y="74" width="100" height="100"/>
+                                <animations/>
+                                <state key="normal" title="V"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="sCf-CN-ZJZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SFE-gv-MeD"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="9Gb-zX-G7E" id="4Hx-i4-KOb"/>
+                        <outlet property="imageOneButton" destination="yRS-9P-siM" id="3ZD-4q-OoZ"/>
+                        <outlet property="imagePreview" destination="hIM-2c-q8a" id="URB-V1-0W4"/>
+                        <outlet property="imageThreeButton" destination="Zd3-Vz-c9W" id="aHz-6t-oLZ"/>
+                        <outlet property="imageTwoButton" destination="9Dl-Xt-scl" id="mnF-MT-8Dy"/>
+                        <outlet property="recordButton" destination="bTD-Of-SNh" id="lmk-R4-iX5"/>
+                        <outlet property="titleField" destination="2aQ-Og-sbG" id="Zus-N3-IiB"/>
+                        <outlet property="videoButton" destination="6Ig-2t-95Z" id="rsQ-6X-CZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNh-Ig-Xfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3352" y="713"/>
+        </scene>
+        <!--Guide View Controller-->
+        <scene sceneID="VGJ-fQ-umo">
+            <objects>
+                <viewController id="K7T-hj-VD7" customClass="GuideViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MYh-Yx-Vka"/>
+                        <viewControllerLayoutGuide type="bottom" id="yoH-5K-yuA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kOZ-YM-e9J">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sbc-03-mlu"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3kv-m6-B4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="1999"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OCy-p9-Cwy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Hot-ss-x3K" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OHb-dr-epn">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KfF-7R-6Ax"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKN-ut-mQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="713"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_bg.png" width="400" height="400"/>
+        <image name="cameraButton.png" width="256" height="256"/>
+        <image name="recordButton.png" width="128" height="128"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dib-cK-xW2"/>
+    </inferredMetricsTieBreakers>
 </document>

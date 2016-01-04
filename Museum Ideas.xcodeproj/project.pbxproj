@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		092139401BCD964700C66FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921393F1BCD964700C66FDB /* AppDelegate.swift */; };
-		092139421BCD964700C66FDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139411BCD964700C66FDB /* ViewController.swift */; };
+		092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139411BCD964700C66FDB /* IntroductionViewController.swift */; };
 		092139451BCD964700C66FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092139431BCD964700C66FDB /* Main.storyboard */; };
 		092139471BCD964700C66FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 092139461BCD964700C66FDB /* Assets.xcassets */; };
 		0921394A1BCD964700C66FDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092139481BCD964700C66FDB /* LaunchScreen.storyboard */; };
 		092139551BCD964700C66FDB /* Museum_IdeasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139541BCD964700C66FDB /* Museum_IdeasTests.swift */; };
 		092139601BCD964700C66FDB /* Museum_IdeasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921395F1BCD964700C66FDB /* Museum_IdeasUITests.swift */; };
+		0921396F1BCD9E8500C66FDB /* intro_start.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 0921396E1BCD9E8500C66FDB /* intro_start.MOV */; };
+		092139731BCDA2D400C66FDB /* recordButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092139711BCDA2D400C66FDB /* recordButton.png */; };
+		092139751BCDA30E00C66FDB /* cameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092139741BCDA30E00C66FDB /* cameraButton.png */; };
+		092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139761BCDC1F500C66FDB /* GuideViewController.swift */; };
+		09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614501BFB2CB800CAE20C /* StationsViewController.swift */; };
+		09C614531BFB38D700CAE20C /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C614521BFB38D700CAE20C /* button_bg.png */; };
+		09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614541BFB3C2600CAE20C /* StationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,7 @@
 /* Begin PBXFileReference section */
 		0921393C1BCD964700C66FDB /* Museum Ideas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Museum Ideas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0921393F1BCD964700C66FDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		092139411BCD964700C66FDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		092139411BCD964700C66FDB /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		092139441BCD964700C66FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		092139461BCD964700C66FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		092139491BCD964700C66FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,13 @@
 		0921395B1BCD964700C66FDB /* Museum IdeasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Museum IdeasUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0921395F1BCD964700C66FDB /* Museum_IdeasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Museum_IdeasUITests.swift; sourceTree = "<group>"; };
 		092139611BCD964700C66FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0921396E1BCD9E8500C66FDB /* intro_start.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = intro_start.MOV; sourceTree = "<group>"; };
+		092139711BCDA2D400C66FDB /* recordButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordButton.png; sourceTree = "<group>"; };
+		092139741BCDA30E00C66FDB /* cameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraButton.png; sourceTree = "<group>"; };
+		092139761BCDC1F500C66FDB /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		09C614501BFB2CB800CAE20C /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
+		09C614521BFB38D700CAE20C /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
+		09C614541BFB3C2600CAE20C /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				0921393E1BCD964700C66FDB /* Museum Ideas */,
+				0921396D1BCD9E8500C66FDB /* Resources */,
 				092139531BCD964700C66FDB /* Museum IdeasTests */,
 				0921395E1BCD964700C66FDB /* Museum IdeasUITests */,
 				0921393D1BCD964700C66FDB /* Products */,
@@ -98,7 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				0921393F1BCD964700C66FDB /* AppDelegate.swift */,
-				092139411BCD964700C66FDB /* ViewController.swift */,
+				092139411BCD964700C66FDB /* IntroductionViewController.swift */,
+				092139761BCDC1F500C66FDB /* GuideViewController.swift */,
+				09C614501BFB2CB800CAE20C /* StationsViewController.swift */,
+				09C614541BFB3C2600CAE20C /* StationViewController.swift */,
 				092139431BCD964700C66FDB /* Main.storyboard */,
 				092139461BCD964700C66FDB /* Assets.xcassets */,
 				092139481BCD964700C66FDB /* LaunchScreen.storyboard */,
@@ -123,6 +141,18 @@
 				092139611BCD964700C66FDB /* Info.plist */,
 			);
 			path = "Museum IdeasUITests";
+			sourceTree = "<group>";
+		};
+		0921396D1BCD9E8500C66FDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09C614521BFB38D700CAE20C /* button_bg.png */,
+				0921396E1BCD9E8500C66FDB /* intro_start.MOV */,
+				092139711BCDA2D400C66FDB /* recordButton.png */,
+				092139741BCDA30E00C66FDB /* cameraButton.png */,
+			);
+			name = Resources;
+			path = "Museum Ideas/Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +258,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0921396F1BCD9E8500C66FDB /* intro_start.MOV in Resources */,
+				09C614531BFB38D700CAE20C /* button_bg.png in Resources */,
 				0921394A1BCD964700C66FDB /* LaunchScreen.storyboard in Resources */,
+				092139731BCDA2D400C66FDB /* recordButton.png in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
+				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				092139451BCD964700C66FDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,8 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				092139421BCD964700C66FDB /* ViewController.swift in Sources */,
+				092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */,
 				092139401BCD964700C66FDB /* AppDelegate.swift in Sources */,
+				092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */,
+				09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */,
+				09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Museum Ideas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mme.Museum-Ideas";
@@ -409,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Museum Ideas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mme.Museum-Ideas";
@@ -483,6 +522,7 @@
 				092139661BCD964700C66FDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		092139671BCD964700C66FDB /* Build configuration list for PBXNativeTarget "Museum IdeasTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +531,7 @@
 				092139691BCD964700C66FDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0921396A1BCD964700C66FDB /* Build configuration list for PBXNativeTarget "Museum IdeasUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +540,7 @@
 				0921396C1BCD964700C66FDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
