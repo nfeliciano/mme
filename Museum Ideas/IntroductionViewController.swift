@@ -33,19 +33,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         menuLeftGesture.direction = .Left
         self.menuView.addGestureRecognizer(menuLeftGesture)
         
-        self.playIntroVideo()
-    }
-    
-    func menuSwipe(sender: UISwipeGestureRecognizer) {
-        if (sender.direction == .Left) {
-            if (self.scrollView.contentOffset.x < self.scrollView.contentSize.width - self.scrollView.frame.size.width) {
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x+self.scrollView.frame.size.width, 0), animated: true)
-            }
-        } else {
-            if (self.scrollView.contentOffset.x != 0) {
-            self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x-self.scrollView.frame.size.width, 0), animated: true)
-            }
-        }
+//        self.playIntroVideo()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,7 +43,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let path = getDocumentsDirectory().stringByAppendingPathComponent("myImage.png")
         let image: UIImage
         if (fileManager.fileExistsAtPath(path)) {
-            image = UIImage(contentsOfFile: path)!
+            let initialImage : UIImage = UIImage(contentsOfFile: path)!
+            image = UIImage(CGImage: initialImage.CGImage!, scale: 1, orientation: .Right)
         } else {
             image = UIImage(named: "emptyImage.png")!
         }
@@ -84,7 +73,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {
         for imageView in self.scrollView.subviews {
-            if (imageView.tag == page) {
+            if (imageView.tag == page+10) {
                 let replaceView : UIImageView = imageView as! UIImageView
                 replaceView.image = imageToAdd
                 return
@@ -94,7 +83,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let frame : CGRect = self.scrollView.frame
         image.center = CGPointMake(frame.size.width/2 + (CGFloat(page) * frame.size.width), frame.size.height/2)
         image.image = imageToAdd
-        image.tag = page;
+        image.tag = page+10;
         self.scrollView .addSubview(image)
     }
     
@@ -111,8 +100,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func playVideo(sender: UIButton) {
-//        self.cameraButton?.hidden = false
-//        self.recordButton?.hidden = false
+//        self.playIntroVideo()
+        self.performSegueWithIdentifier("segueToBooks", sender: nil)
     }
     
     @IBAction func cameraPressed(sender: UIButton) {
@@ -172,7 +161,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             
                             //add image to scrollview here
                             for imageView in self.scrollView.subviews {
-                                if (imageView.tag == 1) {
+                                if (imageView.tag == 11) {
                                     let replaceView : UIImageView = imageView as! UIImageView
                                     replaceView.image = UIImage(named: "videoPlayButton.png")!
                                 }
@@ -189,7 +178,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             
                             //add image to scrollview here
                             for imageView in self.scrollView.subviews {
-                                if (imageView.tag == 0) {
+                                if (imageView.tag == 10) {
                                     let replaceView : UIImageView = imageView as! UIImageView
                                     replaceView.image = temp
                                 }
@@ -211,12 +200,28 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToGuide" {
             
+        } else if segue.identifier == "segueToBooks" {
+            print("prep")
         }
     }
     
     override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
         if identifier == "segueToGuide" {
             
+        } else if identifier == "segueToBooks" {
+            print("go")
+        }
+    }
+    
+    func menuSwipe(sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) {
+            if (self.scrollView.contentOffset.x < self.scrollView.contentSize.width - self.scrollView.frame.size.width) {
+                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x+self.scrollView.frame.size.width, 0), animated: true)
+            }
+        } else {
+            if (self.scrollView.contentOffset.x != 0) {
+                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x-self.scrollView.frame.size.width, 0), animated: true)
+            }
         }
     }
     
