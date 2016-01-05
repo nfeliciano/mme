@@ -85,6 +85,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         image.image = imageToAdd
         image.tag = page+10;
         self.scrollView .addSubview(image)
+        
+        if (page == 1) {
+            let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("playMyVideo:"))
+            tapGesture.numberOfTapsRequired = 1
+            image.addGestureRecognizer(tapGesture)
+            image.userInteractionEnabled = true
+        }
+    }
+    
+    func playMyVideo(sender: UITapGestureRecognizer) {
+        let fileManager = NSFileManager.defaultManager()
+
+        let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("myVideo.mp4")
+        if (fileManager.fileExistsAtPath(vidPath)) {
+            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+            let playerCtrl = AVPlayerViewController()
+            playerCtrl.player = player
+            self.presentViewController(playerCtrl, animated: true) {
+                playerCtrl.player?.play()
+            }
+        }
     }
     
     func playIntroVideo() {
