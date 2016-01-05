@@ -17,6 +17,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var recordButton : UIButton!
     @IBOutlet weak var continueButton : UIButton!
     @IBOutlet weak var scrollView : UIScrollView!
+    @IBOutlet weak var menuView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*2, self.scrollView.frame.size.height);
         self.scrollView.delegate = self
         
+        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
+        menuRightGesture.direction = .Right
+        self.menuView.addGestureRecognizer(menuRightGesture)
+        
+        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
+        menuLeftGesture.direction = .Left
+        self.menuView.addGestureRecognizer(menuLeftGesture)
+        
         self.playIntroVideo()
+    }
+    
+    func menuSwipe(sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) {
+            if (self.scrollView.contentOffset.x < self.scrollView.contentSize.width - self.scrollView.frame.size.width) {
+                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x+self.scrollView.frame.size.width, 0), animated: true)
+            }
+        } else {
+            if (self.scrollView.contentOffset.x != 0) {
+            self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x-self.scrollView.frame.size.width, 0), animated: true)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -182,6 +203,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
+    @IBAction func controlButtonPressed(sender: UIButton) {
+        let toPage : Int = sender.tag-101
+        self.scrollView .setContentOffset(CGPointMake(self.scrollView.frame.size.width * CGFloat(toPage), 0), animated: true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToGuide" {
             
@@ -195,6 +221,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.changeInputIcon()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+        self.changeInputIcon()
+    }
+    
+    func changeInputIcon() {
         if scrollView.contentOffset.x == 0 {
             self.cameraButton!.hidden = false;
             self.recordButton!.hidden = true;

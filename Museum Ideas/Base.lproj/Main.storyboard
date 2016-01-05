@@ -69,6 +69,30 @@
                                     <action selector="videoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQl-su-cK6"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-AY-bT0">
+                                <rect key="frame" x="267" y="82" width="250" height="61"/>
+                                <subviews>
+                                    <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de9-rO-CjL">
+                                        <rect key="frame" x="50" y="0.0" width="48" height="61"/>
+                                        <state key="normal" title="Photo">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="controlButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OQ0-Lm-nGX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fza-fk-2Gy">
+                                        <rect key="frame" x="150" y="0.0" width="48" height="61"/>
+                                        <state key="normal" title="Video">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="controlButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vgq-mb-il7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="da2-PO-kaP"/>
@@ -77,6 +101,7 @@
                         <outlet property="cameraButton" destination="7jT-zz-7DQ" id="QVE-XT-nw9"/>
                         <outlet property="continueButton" destination="eSc-cA-WAe" id="7SJ-8K-fUc"/>
                         <outlet property="introButton" destination="mt6-AT-uWe" id="CdH-hc-0LT"/>
+                        <outlet property="menuView" destination="tcS-AY-bT0" id="dds-bz-m8b"/>
                         <outlet property="recordButton" destination="w9h-0O-5XB" id="Yvc-Om-tlC"/>
                         <outlet property="scrollView" destination="gNc-T1-dVP" id="sPc-CS-hp7"/>
                     </connections>
@@ -84,6 +109,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1370" y="713"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7oC-kd-wVl">
+            <objects>
+                <viewController id="owS-8p-L2R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RhY-IC-ib5"/>
+                        <viewControllerLayoutGuide type="bottom" id="q7j-La-hlt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w4w-W6-9Cz">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQa-wE-uoV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2288" y="-1"/>
         </scene>
         <!--Stations View Controller-->
         <scene sceneID="PcU-LQ-fjb">
@@ -131,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1e-Sl-Ewy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2336" y="713"/>
+            <point key="canvasLocation" x="3184" y="713"/>
         </scene>
         <!--Station View Controller-->
         <scene sceneID="Ptp-Ew-HlY">
@@ -220,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNh-Ig-Xfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352" y="713"/>
+            <point key="canvasLocation" x="4200" y="713"/>
         </scene>
         <!--Guide View Controller-->
         <scene sceneID="VGJ-fQ-umo">
