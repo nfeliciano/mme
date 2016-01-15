@@ -11,12 +11,19 @@ import UIKit
 class StationsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel : UILabel!
+    @IBOutlet weak var backgroundImage : UIImageView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {1
         super.viewDidLoad()
         let defaults = NSUserDefaults.standardUserDefaults()
         if let title = defaults.objectForKey("activityName") {
             self.titleLabel.text = title as! String
+        }
+        let fileManager = NSFileManager.defaultManager()
+        let path = getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+        if (fileManager.fileExistsAtPath(path)) {
+            let image: UIImage = UIImage(contentsOfFile: path)!
+            self.backgroundImage.image = image
         }
     }
     
@@ -41,5 +48,11 @@ class StationsViewController: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
 }

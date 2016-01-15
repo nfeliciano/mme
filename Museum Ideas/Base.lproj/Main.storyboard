@@ -268,6 +268,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-nq-i5B">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
                                 <rect key="frame" x="303" y="302" width="162" height="162"/>
                                 <state key="normal" title="Station 1" backgroundImage="button_bg.png">
@@ -333,6 +336,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Sm9-kk-vAG"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="XyB-nq-i5B" id="C1g-O9-YbM"/>
                         <outlet property="titleLabel" destination="MxE-or-Yqm" id="huH-b6-Tl6"/>
                     </connections>
                 </viewController>

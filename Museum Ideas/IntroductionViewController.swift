@@ -193,6 +193,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             //add image to scrollview here
                             for imageView in self.scrollView.subviews {
                                 if (imageView.tag == 11) {
+                                    
                                     let replaceView : UIImageView = imageView as! UIImageView
                                     replaceView.image = UIImage(named: "videoPlayButton.png")!
                                 }
