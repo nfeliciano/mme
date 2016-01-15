@@ -10,8 +10,14 @@ import UIKit
 
 class StationsViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel : UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let title = defaults.objectForKey("activityName") {
+            self.titleLabel.text = title as! String
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,4 +39,7 @@ class StationsViewController: UIViewController {
         }
     }
     
+    @IBAction func backButton(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

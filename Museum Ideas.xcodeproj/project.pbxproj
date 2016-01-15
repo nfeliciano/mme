@@ -26,6 +26,10 @@
 		0921B99B1C3BDB660029FC48 /* bookBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0921B99A1C3BDB660029FC48 /* bookBackground.png */; };
 		0921B9A11C3BDF040029FC48 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921B9A01C3BDF040029FC48 /* PageViewController.swift */; };
 		0921B9A31C3BE3960029FC48 /* paperBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0921B9A21C3BE3960029FC48 /* paperBackground.png */; };
+		094E0C851C491E6F00447B58 /* DesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E0C841C491E6F00447B58 /* DesignViewController.swift */; };
+		094E0C871C4928A100447B58 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C861C4928A100447B58 /* back-icon.png */; };
+		094E0C891C49295900447B58 /* instructions-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C881C49295900447B58 /* instructions-icon.png */; };
+		094E0C8B1C4929E400447B58 /* book-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C8A1C4929E400447B58 /* book-icon.png */; };
 		09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614501BFB2CB800CAE20C /* StationsViewController.swift */; };
 		09C614531BFB38D700CAE20C /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C614521BFB38D700CAE20C /* button_bg.png */; };
 		09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614541BFB3C2600CAE20C /* StationViewController.swift */; };
@@ -74,6 +78,10 @@
 		0921B99A1C3BDB660029FC48 /* bookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookBackground.png; sourceTree = "<group>"; };
 		0921B9A01C3BDF040029FC48 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		0921B9A21C3BE3960029FC48 /* paperBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paperBackground.png; sourceTree = "<group>"; };
+		094E0C841C491E6F00447B58 /* DesignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewController.swift; sourceTree = "<group>"; };
+		094E0C861C4928A100447B58 /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
+		094E0C881C49295900447B58 /* instructions-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-icon.png"; sourceTree = "<group>"; };
+		094E0C8A1C4929E400447B58 /* book-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-icon.png"; sourceTree = "<group>"; };
 		09C614501BFB2CB800CAE20C /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		09C614521BFB38D700CAE20C /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		09C614541BFB3C2600CAE20C /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 				0921B9961C3BD00C0029FC48 /* MenuViewController.swift */,
 				0921B9981C3BD3920029FC48 /* BooksViewController.swift */,
 				0921B9A01C3BDF040029FC48 /* PageViewController.swift */,
+				094E0C841C491E6F00447B58 /* DesignViewController.swift */,
 				092139431BCD964700C66FDB /* Main.storyboard */,
 				092139461BCD964700C66FDB /* Assets.xcassets */,
 				092139481BCD964700C66FDB /* LaunchScreen.storyboard */,
@@ -165,6 +174,9 @@
 		0921396D1BCD9E8500C66FDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				094E0C8A1C4929E400447B58 /* book-icon.png */,
+				094E0C881C49295900447B58 /* instructions-icon.png */,
+				094E0C861C4928A100447B58 /* back-icon.png */,
 				0921B99A1C3BDB660029FC48 /* bookBackground.png */,
 				0921B9A21C3BE3960029FC48 /* paperBackground.png */,
 				090C57571C3A656A00A5EFD9 /* videoPlayButton.png */,
@@ -283,13 +295,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0921B99B1C3BDB660029FC48 /* bookBackground.png in Resources */,
+				094E0C8B1C4929E400447B58 /* book-icon.png in Resources */,
 				0921396F1BCD9E8500C66FDB /* intro_start.MOV in Resources */,
 				0921B9A31C3BE3960029FC48 /* paperBackground.png in Resources */,
 				090C57581C3A656A00A5EFD9 /* videoPlayButton.png in Resources */,
+				094E0C871C4928A100447B58 /* back-icon.png in Resources */,
 				09C614531BFB38D700CAE20C /* button_bg.png in Resources */,
 				0921394A1BCD964700C66FDB /* LaunchScreen.storyboard in Resources */,
 				090C57541C3A618600A5EFD9 /* emptyImage.png in Resources */,
 				092139731BCDA2D400C66FDB /* recordButton.png in Resources */,
+				094E0C891C49295900447B58 /* instructions-icon.png in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */,
@@ -324,6 +339,7 @@
 				092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */,
 				09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */,
 				09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */,
+				094E0C851C491E6F00447B58 /* DesignViewController.swift in Sources */,
 				0921B9991C3BD3920029FC48 /* BooksViewController.swift in Sources */,
 				0921B9A11C3BDF040029FC48 /* PageViewController.swift in Sources */,
 			);

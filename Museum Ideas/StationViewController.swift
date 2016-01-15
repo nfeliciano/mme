@@ -135,10 +135,33 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         }
         let fileManager = NSFileManager.defaultManager()
         let path = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+        var image : UIImage
         if (fileManager.fileExistsAtPath(path)) {
-            self.addImagetoScrollViewAtPage(UIImage(named: "videoPlayButton.png")!, page: 3)
+            image = UIImage(named: "videoPlayButton.png")!
+            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("playThisVideo:"))
+            tap.numberOfTapsRequired = 1
+            tap.numberOfTouchesRequired = 1
+            self.scrollView.addGestureRecognizer(tap)
         } else {
-            self.addImagetoScrollViewAtPage(UIImage(named: "emptyVideo.png")!, page: 3)
+            image = UIImage(named: "emptyVideo.png")!
+            
+        }
+        self.addImagetoScrollViewAtPage(image, page: 3)
+    }
+    
+    func playThisVideo(sender : UITapGestureRecognizer) {
+        if (self.scrollView.contentOffset.x >= self.scrollView.frame.size.width*3) {
+            let fileManager = NSFileManager.defaultManager()
+            
+            let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+            if (fileManager.fileExistsAtPath(vidPath)) {
+                let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+                let playerCtrl = AVPlayerViewController()
+                playerCtrl.player = player
+                self.presentViewController(playerCtrl, animated: true) {
+                    playerCtrl.player?.play()
+                }
+            }
         }
     }
     

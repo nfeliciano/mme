@@ -122,7 +122,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func playVideo(sender: UIButton) {
 //        self.playIntroVideo()
-        self.performSegueWithIdentifier("segueToBooks", sender: nil)
+        let fileManager = NSFileManager.defaultManager()
+        
+        let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
+        if (fileManager.fileExistsAtPath(vidPath)) {
+            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+            let playerCtrl = AVPlayerViewController()
+            playerCtrl.player = player
+            self.presentViewController(playerCtrl, animated: true) {
+                playerCtrl.player?.play()
+            }
+        }
     }
     
     @IBAction func cameraPressed(sender: UIButton) {
@@ -232,6 +242,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         } else if identifier == "segueToBooks" {
             print("go")
         }
+    }
+    
+    @IBAction func backButton(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func menuSwipe(sender: UISwipeGestureRecognizer) {
