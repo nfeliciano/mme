@@ -10,6 +10,7 @@ import UIKit
 
 class PageViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var pageText: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     var pageIndex: Int!

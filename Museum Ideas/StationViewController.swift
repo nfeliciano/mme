@@ -21,11 +21,14 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     var station: Int!
     var currentPic: Int! = 1
     @IBOutlet weak var titleField: UILabel!
+    @IBOutlet weak var instructionsText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleField.text = "Station \(station)"
+        let defaults = NSUserDefaults.standardUserDefaults()
+        instructionsText.text = defaults.stringForKey("activityText1")
         
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*4, self.scrollView.frame.size.height);
         self.scrollView.delegate = self
