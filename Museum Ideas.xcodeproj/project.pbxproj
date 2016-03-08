@@ -30,6 +30,7 @@
 		094E0C871C4928A100447B58 /* back-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C861C4928A100447B58 /* back-icon.png */; };
 		094E0C891C49295900447B58 /* instructions-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C881C49295900447B58 /* instructions-icon.png */; };
 		094E0C8B1C4929E400447B58 /* book-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C8A1C4929E400447B58 /* book-icon.png */; };
+		095EA2781C85948600C78CDE /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095EA2771C85948600C78CDE /* TextViewController.swift */; };
 		09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614501BFB2CB800CAE20C /* StationsViewController.swift */; };
 		09C614531BFB38D700CAE20C /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C614521BFB38D700CAE20C /* button_bg.png */; };
 		09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614541BFB3C2600CAE20C /* StationViewController.swift */; };
@@ -82,6 +83,7 @@
 		094E0C861C4928A100447B58 /* back-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-icon.png"; sourceTree = "<group>"; };
 		094E0C881C49295900447B58 /* instructions-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-icon.png"; sourceTree = "<group>"; };
 		094E0C8A1C4929E400447B58 /* book-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-icon.png"; sourceTree = "<group>"; };
+		095EA2771C85948600C78CDE /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		09C614501BFB2CB800CAE20C /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		09C614521BFB38D700CAE20C /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		09C614541BFB3C2600CAE20C /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				0921B9981C3BD3920029FC48 /* BooksViewController.swift */,
 				0921B9A01C3BDF040029FC48 /* PageViewController.swift */,
 				094E0C841C491E6F00447B58 /* DesignViewController.swift */,
+				095EA2771C85948600C78CDE /* TextViewController.swift */,
 				092139431BCD964700C66FDB /* Main.storyboard */,
 				092139461BCD964700C66FDB /* Assets.xcassets */,
 				092139481BCD964700C66FDB /* LaunchScreen.storyboard */,
@@ -338,6 +341,7 @@
 				092139401BCD964700C66FDB /* AppDelegate.swift in Sources */,
 				092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */,
 				09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */,
+				095EA2781C85948600C78CDE /* TextViewController.swift in Sources */,
 				09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */,
 				094E0C851C491E6F00447B58 /* DesignViewController.swift in Sources */,
 				0921B9991C3BD3920029FC48 /* BooksViewController.swift in Sources */,
