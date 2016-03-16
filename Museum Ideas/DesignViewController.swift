@@ -12,9 +12,10 @@ import AVFoundation
 import MobileCoreServices
 import Darwin
 
-class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBOutlet weak var titleField: UITextField!
+    var station: Int!
+    
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stageButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
@@ -22,11 +23,6 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let title = defaults.objectForKey("activityName") {
-            self.titleField.text = title as! String
-        }
         
         // Do any additional setup after loading the view.
     }
@@ -91,7 +87,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
                             videoData!.writeToFile(filename, atomically: true)
                             
                             
@@ -100,9 +96,9 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                     else
                     {
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-                        let image : UIImage = rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
+                        let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
                         if let data = UIImagePNGRepresentation(image) {
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
                             data.writeToFile(filename, atomically: true)
                             
                         }
@@ -112,12 +108,6 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -145,93 +135,4 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
         // Pass the selected object to the new view controller.
     }
     */
-    func rotateCameraImageToProperOrientation(imageSource : UIImage, maxResolution : CGFloat) -> UIImage {
-        
-        let imgRef = imageSource.CGImage;
-        
-        let width = CGFloat(CGImageGetWidth(imgRef));
-        let height = CGFloat(CGImageGetHeight(imgRef));
-        
-        var bounds = CGRectMake(0, 0, width, height)
-        
-        var scaleRatio : CGFloat = 1
-        if (width > maxResolution || height > maxResolution) {
-            
-            scaleRatio = min(maxResolution / bounds.size.width, maxResolution / bounds.size.height)
-            bounds.size.height = bounds.size.height * scaleRatio
-            bounds.size.width = bounds.size.width * scaleRatio
-        }
-        
-        var transform = CGAffineTransformIdentity
-        let orient = imageSource.imageOrientation
-        let imageSize = CGSizeMake(CGFloat(CGImageGetWidth(imgRef)), CGFloat(CGImageGetHeight(imgRef)))
-        
-        
-        switch(imageSource.imageOrientation) {
-        case .Up :
-            transform = CGAffineTransformIdentity
-            
-        case .UpMirrored :
-            transform = CGAffineTransformMakeTranslation(imageSize.width, 0.0);
-            transform = CGAffineTransformScale(transform, -1.0, 1.0);
-            
-        case .Down :
-            transform = CGAffineTransformMakeTranslation(imageSize.width, imageSize.height);
-            transform = CGAffineTransformRotate(transform, CGFloat(M_PI));
-            
-        case .DownMirrored :
-            transform = CGAffineTransformMakeTranslation(0.0, imageSize.height);
-            transform = CGAffineTransformScale(transform, 1.0, -1.0);
-            
-        case .Left :
-            let storedHeight = bounds.size.height
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = storedHeight;
-            transform = CGAffineTransformMakeTranslation(0.0, imageSize.width);
-            transform = CGAffineTransformRotate(transform, 3.0 * CGFloat(M_PI) / 2.0);
-            
-        case .LeftMirrored :
-            let storedHeight = bounds.size.height
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = storedHeight;
-            transform = CGAffineTransformMakeTranslation(imageSize.height, imageSize.width);
-            transform = CGAffineTransformScale(transform, -1.0, 1.0);
-            transform = CGAffineTransformRotate(transform, 3.0 * CGFloat(M_PI) / 2.0);
-            
-        case .Right :
-            let storedHeight = bounds.size.height
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = storedHeight;
-            transform = CGAffineTransformMakeTranslation(imageSize.height, 0.0);
-            transform = CGAffineTransformRotate(transform, CGFloat(M_PI) / 2.0);
-            
-        case .RightMirrored :
-            let storedHeight = bounds.size.height
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = storedHeight;
-            transform = CGAffineTransformMakeScale(-1.0, 1.0);
-            transform = CGAffineTransformRotate(transform, CGFloat(M_PI) / 2.0);
-            
-        default : ()
-        }
-        
-        UIGraphicsBeginImageContext(bounds.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        if orient == .Right || orient == .Left {
-            CGContextScaleCTM(context, -scaleRatio, scaleRatio);
-            CGContextTranslateCTM(context, -height, 0);
-        } else {
-            CGContextScaleCTM(context, scaleRatio, -scaleRatio);
-            CGContextTranslateCTM(context, 0, -height);
-        }
-        
-        CGContextConcatCTM(context, transform);
-        CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, width, height), imgRef);
-        
-        let imageCopy = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        return imageCopy;
-    }
 }

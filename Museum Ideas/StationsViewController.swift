@@ -21,7 +21,7 @@ class StationsViewController: UIViewController {
             self.titleLabel.text = title as! String
         }
         let fileManager = NSFileManager.defaultManager()
-        let path = getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
         if (fileManager.fileExistsAtPath(path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
             self.backgroundImage.image = image
@@ -49,11 +49,5 @@ class StationsViewController: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
 }

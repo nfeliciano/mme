@@ -482,7 +482,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Design"/>
                                 <connections>
-                                    <segue destination="xAJ-B9-U0x" kind="push" id="v0i-ep-Drt"/>
+                                    <segue destination="d9g-X1-Kl1" kind="push" id="P0y-Gj-L6s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bku-al-RE5">
@@ -490,7 +490,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Activities"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="mLd-DZ-gIc"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="SsT-9o-Zzd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -502,6 +502,104 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kv-m6-B4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="396" y="713"/>
+        </scene>
+        <!--Designer View Controller-->
+        <scene sceneID="mVW-R5-LDW">
+            <objects>
+                <viewController id="d9g-X1-Kl1" customClass="DesignerViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UWO-6K-0xh"/>
+                        <viewControllerLayoutGuide type="bottom" id="dyn-Rm-YMz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XbE-c8-B5C">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-by-HTf">
+                                <rect key="frame" x="250" y="289" width="268" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Introduction Activity"/>
+                                <connections>
+                                    <action selector="recordButtonPressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="lum-xf-pZ3"/>
+                                    <segue destination="xAJ-B9-U0x" kind="push" identifier="stationIntro" id="xj7-c5-3vx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMN-mg-pgN">
+                                <rect key="frame" x="274" y="485" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Activity 1"/>
+                                <connections>
+                                    <action selector="stagePressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="bx7-Vm-Ek2"/>
+                                    <segue destination="xAJ-B9-U0x" kind="push" identifier="stationOne" id="KFL-bM-pLY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-Z6-3Pm">
+                                <rect key="frame" x="274" y="693" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Activity 2"/>
+                                <connections>
+                                    <segue destination="xAJ-B9-U0x" kind="push" identifier="stationTwo" id="TgV-C4-wgu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9w-Wl-9ff">
+                                <rect key="frame" x="274" y="873" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Activity 3"/>
+                                <connections>
+                                    <segue destination="xAJ-B9-U0x" kind="push" identifier="stationThree" id="8gX-XX-hEh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-u9-lB2">
+                                <rect key="frame" x="274" y="135" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Set the Stage"/>
+                                <connections>
+                                    <action selector="stagePressed:" destination="d9g-X1-Kl1" eventType="touchUpInside" id="mW8-N1-Xa6"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Change Activity Title" borderStyle="roundedRect" placeholder="Change Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPJ-nB-cqB">
+                                <rect key="frame" x="146" y="116" width="476" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="d9g-X1-Kl1" id="Yii-eV-qqS"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBG-De-eWO">
+                                <rect key="frame" x="69" y="0.0" width="119" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="d9g-X1-Kl1" eventType="touchUpInside" id="gle-vc-OK8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4g-MN-1tZ">
+                                <rect key="frame" x="349" y="11" width="80" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="instructions-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcH-HF-gaa">
+                                <rect key="frame" x="600" y="1" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="book-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WZd-dP-GfK"/>
+                    <connections>
+                        <outlet property="titleField" destination="KPJ-nB-cqB" id="mdT-Ed-cdL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0fj-c8-N9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="397" y="1969"/>
         </scene>
         <!--Text View Controller-->
         <scene sceneID="i2N-4X-9kn">
@@ -688,13 +786,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFS-oR-PyN">
                                 <rect key="frame" x="308" y="118" width="152" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hi-u9-Y5b">
                                 <rect key="frame" x="398" y="463" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="17" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Video Text" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mib-0o-eaL">
@@ -712,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AR4-3l-caS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="3433"/>
+            <point key="canvasLocation" x="396" y="4477"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oru-eI-pgr">
@@ -736,7 +834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3J-pb-zCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="2267"/>
+            <point key="canvasLocation" x="1301" y="3311"/>
         </scene>
         <!--Design View Controller-->
         <scene sceneID="vTX-nv-7n7">
@@ -782,14 +880,6 @@
                                     <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Change Activity Title" borderStyle="roundedRect" placeholder="Change Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lnr-dA-9F0">
-                                <rect key="frame" x="146" y="99" width="476" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="xAJ-B9-U0x" id="bYw-FR-sas"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-Bw-2bw">
                                 <rect key="frame" x="64" y="-11" width="119" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -826,12 +916,11 @@
                         <outlet property="recordButton" destination="H7K-hd-QCU" id="Afo-Tp-xtZ"/>
                         <outlet property="stageButton" destination="7E9-mi-gSg" id="5vo-9p-os8"/>
                         <outlet property="textButton" destination="60u-DP-UCe" id="4cf-Yx-oOo"/>
-                        <outlet property="titleField" destination="Lnr-dA-9F0" id="xrl-l3-Gb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Jr-4c-k0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="2267"/>
+            <point key="canvasLocation" x="397" y="3311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OCy-p9-Cwy">
@@ -849,7 +938,83 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKN-ut-mQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="713"/>
+            <point key="canvasLocation" x="-571" y="798"/>
+        </scene>
+        <!--Stations View Controller-->
+        <scene sceneID="W4U-Oi-8KA">
+            <objects>
+                <viewController id="GGV-vl-9FW" customClass="StationsViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kf5-lt-2H7"/>
+                        <viewControllerLayoutGuide type="bottom" id="BBV-zS-MRN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Jo-rw-fHX">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTA-pU-P8I">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-9H-ySF">
+                                <rect key="frame" x="303" y="302" width="162" height="162"/>
+                                <state key="normal" title="Station 1" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-Ts-CCx">
+                                <rect key="frame" x="303" y="529" width="162" height="162"/>
+                                <state key="normal" title="Station 2" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1S-hq-ZPb">
+                                <rect key="frame" x="303" y="762" width="162" height="162"/>
+                                <state key="normal" title="Station 3" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-SW-fRn">
+                                <rect key="frame" x="69" y="0.0" width="120" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="GGV-vl-9FW" eventType="touchUpInside" id="s2W-ut-ta8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xi4-X6-ilD">
+                                <rect key="frame" x="349" y="11" width="80" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="instructions-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qnr-t8-hcv">
+                                <rect key="frame" x="600" y="1" width="100" height="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="book-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEl-2G-7oc">
+                                <rect key="frame" x="184" y="136" width="400" height="60"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="34"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EoA-K8-V84"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="NTA-pU-P8I" id="xhs-Ok-C7t"/>
+                        <outlet property="titleLabel" destination="yEl-2G-7oc" id="uxN-q0-MKq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjD-GM-1Bb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2448" y="713"/>
         </scene>
     </scenes>
     <resources>
@@ -863,7 +1028,8 @@
         <image name="recordButton.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dib-cK-xW2"/>
-        <segue reference="bIa-gG-DgK"/>
+        <segue reference="xj7-c5-3vx"/>
+        <segue reference="Ms2-9e-4By"/>
+        <segue reference="MJy-k1-deb"/>
     </inferredMetricsTieBreakers>
 </document>

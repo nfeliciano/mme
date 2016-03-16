@@ -125,7 +125,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     func loadImages() {
         for var i = 1; i < 4; i++ {
             let fileManager = NSFileManager.defaultManager()
-            let path = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(i).png")
+            let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(i).png")
             if (fileManager.fileExistsAtPath(path)) {
                 let image: UIImage = UIImage(contentsOfFile: path)!
                 let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
@@ -137,7 +137,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
             }
         }
         let fileManager = NSFileManager.defaultManager()
-        let path = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
         var image : UIImage
         if (fileManager.fileExistsAtPath(path)) {
             image = UIImage(named: "videoPlayButton.png")!
@@ -156,7 +156,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         if (self.scrollView.contentOffset.x >= self.scrollView.frame.size.width*3) {
             let fileManager = NSFileManager.defaultManager()
             
-            let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+            let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
             if (fileManager.fileExistsAtPath(vidPath)) {
                 let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
                 let playerCtrl = AVPlayerViewController()
@@ -206,7 +206,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
                             videoData!.writeToFile(filename, atomically: true)
                             
                             //add image to scrollview here
@@ -223,7 +223,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
                         
                         if let data = UIImagePNGRepresentation(temp) {
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(currentPic).png")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(currentPic).png")
                             data.writeToFile(filename, atomically: true)
                             
                             //add image to scrollview here
@@ -240,12 +240,6 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
     
 }
