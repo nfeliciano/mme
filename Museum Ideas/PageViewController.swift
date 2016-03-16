@@ -15,6 +15,7 @@ class PageViewController: UIViewController {
     
     var pageIndex: Int!
     var titleText: String!
+    var pageLabelText: String!
     var imageFile: String!
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class PageViewController: UIViewController {
             let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
             self.imageView.image = rotated
         }
+        self.pageText.text = self.pageLabelText;
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -11,13 +11,14 @@ import UIKit
 class BooksViewController: UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController: UIPageViewController!
-    var pageTitles: NSArray!
+    var pageTitles: NSMutableArray!
     var pageImages: NSArray!
+    
+    var station: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pageTitles = NSArray(objects: "1", "2", "3")
-        self.pageImages = NSArray(objects: "station1-image1.png", "station1-image2.png", "station1-image3.png")
+        self.pageTitles = NSMutableArray()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,12 +35,21 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
     
     @IBAction func stationPressed(sender: UIButton) {
         if (sender.tag == 1) {
-            
+            station = 1;
         } else if (sender.tag == 2) {
-            
+            station = 2;
         } else if (sender.tag == 3) {
-            
+            station = 3;
         }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        for (var i:Int = 11; i <= 13; i++) {
+            if let str = defaults.stringForKey("station\(station)-activityText\(i)") {
+                self.pageTitles.addObject(str)
+            } else {
+                self.pageTitles.addObject("Untitled Page")
+            }
+        }
+        self.pageImages = NSArray(objects: "station1-image1.png", "station1-image2.png", "station1-image3.png")
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BookViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         var startVC = self.viewControllerAtIndex(0) as PageViewController
@@ -59,7 +69,7 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         var vc: PageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! PageViewController
-        vc.titleText = self.pageTitles[index] as! String
+        vc.pageLabelText = self.pageTitles[index] as! String
         vc.pageIndex = index
         vc.imageFile = self.pageImages[index] as! String
         
