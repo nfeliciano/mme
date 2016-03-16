@@ -21,7 +21,6 @@
 		092139731BCDA2D400C66FDB /* recordButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092139711BCDA2D400C66FDB /* recordButton.png */; };
 		092139751BCDA30E00C66FDB /* cameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 092139741BCDA30E00C66FDB /* cameraButton.png */; };
 		092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139761BCDC1F500C66FDB /* GuideViewController.swift */; };
-		0921B9971C3BD00C0029FC48 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921B9961C3BD00C0029FC48 /* MenuViewController.swift */; };
 		0921B9991C3BD3920029FC48 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921B9981C3BD3920029FC48 /* BooksViewController.swift */; };
 		0921B99B1C3BDB660029FC48 /* bookBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0921B99A1C3BDB660029FC48 /* bookBackground.png */; };
 		0921B9A11C3BDF040029FC48 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921B9A01C3BDF040029FC48 /* PageViewController.swift */; };
@@ -76,7 +75,6 @@
 		092139711BCDA2D400C66FDB /* recordButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordButton.png; sourceTree = "<group>"; };
 		092139741BCDA30E00C66FDB /* cameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraButton.png; sourceTree = "<group>"; };
 		092139761BCDC1F500C66FDB /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
-		0921B9961C3BD00C0029FC48 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		0921B9981C3BD3920029FC48 /* BooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		0921B99A1C3BDB660029FC48 /* bookBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookBackground.png; sourceTree = "<group>"; };
 		0921B9A01C3BDF040029FC48 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				092139761BCDC1F500C66FDB /* GuideViewController.swift */,
 				09C614501BFB2CB800CAE20C /* StationsViewController.swift */,
 				09C614541BFB3C2600CAE20C /* StationViewController.swift */,
-				0921B9961C3BD00C0029FC48 /* MenuViewController.swift */,
 				0921B9981C3BD3920029FC48 /* BooksViewController.swift */,
 				0921B9A01C3BDF040029FC48 /* PageViewController.swift */,
 				09C07E551C8F630E000C3E43 /* DesignerViewController.swift */,
@@ -343,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */,
-				0921B9971C3BD00C0029FC48 /* MenuViewController.swift in Sources */,
 				092139401BCD964700C66FDB /* AppDelegate.swift in Sources */,
 				09C07E581C8F6A13000C3E43 /* CommonMethods.swift in Sources */,
 				092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */,

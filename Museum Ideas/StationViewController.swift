@@ -28,7 +28,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         
         titleField.text = "Station \(station)"
         let defaults = NSUserDefaults.standardUserDefaults()
-        instructionsText.text = defaults.stringForKey("activityText1")
+        instructionsText.text = defaults.stringForKey("station\(station)-activityText1")
         
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*4, self.scrollView.frame.size.height);
         self.scrollView.delegate = self
@@ -49,6 +49,12 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let page: Int = Int(scrollView.contentOffset.x / self.view.frame.size.width)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.instructionsText.text = defaults.stringForKey("station\(station)-activityText\(page+1)")
     }
     
     @IBAction func backButton(sender: UIButton) {

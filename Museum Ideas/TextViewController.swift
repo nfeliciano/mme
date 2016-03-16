@@ -9,13 +9,15 @@
 import UIKit
 
 class TextViewController: UIViewController, UITextFieldDelegate {
+    
+    var station: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = NSUserDefaults.standardUserDefaults()
         for view in self.view.subviews {
             if let textField = view as? UITextField {
-                if let text = defaults.stringForKey("activityText\(textField.tag)") {
+                if let text = defaults.stringForKey("station\(station)-activityText\(textField.tag)") {
                     textField.text = text
                 }
             }
@@ -31,7 +33,7 @@ class TextViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.text?.characters.count > 0 {
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults .setObject(textField.text, forKey: "activityText\(textField.tag)")
+            defaults .setObject(textField.text, forKey: "station\(station)-activityText\(textField.tag)")
             print("save to activityText\(textField.tag)")
         }
     }

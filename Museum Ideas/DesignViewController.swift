@@ -125,6 +125,11 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
         textField.resignFirstResponder()
         return true
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let station:TextViewController = segue.destinationViewController as! TextViewController
+        station.station = self.station
+    }
 
     /*
     // MARK: - Navigation
