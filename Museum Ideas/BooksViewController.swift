@@ -42,6 +42,7 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
             station = 3;
         }
         let defaults = NSUserDefaults.standardUserDefaults()
+        //17
         for (var i:Int = 11; i <= 13; i++) {
             if let str = defaults.stringForKey("station\(station)-activityText\(i)") {
                 self.pageTitles.addObject(str)

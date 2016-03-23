@@ -784,10 +784,10 @@
             </objects>
             <point key="canvasLocation" x="396" y="4477"/>
         </scene>
-        <!--View Controller-->
+        <!--Sample Photos View Controller-->
         <scene sceneID="oru-eI-pgr">
             <objects>
-                <viewController id="NVf-ri-wOz" sceneMemberID="viewController">
+                <viewController id="NVf-ri-wOz" customClass="SamplePhotosViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tNq-Zh-f4o"/>
                         <viewControllerLayoutGuide type="bottom" id="TgT-To-Dbp"/>
@@ -796,13 +796,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjw-nN-XjH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjw-nN-XjH">
                                 <rect key="frame" x="0.0" y="165" width="768" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="NVf-ri-wOz" id="E67-aj-xex"/>
+                                </connections>
                             </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="561-b9-uOG">
+                                <rect key="frame" x="259" y="72" width="250" height="61"/>
+                                <subviews>
+                                    <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWP-3F-1dV">
+                                        <rect key="frame" x="48" y="0.0" width="52" height="61"/>
+                                        <state key="normal" title="Photo 1">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="controlButtonPressed:" destination="NVf-ri-wOz" eventType="touchUpInside" id="lEu-Oi-G4S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kT-9y-IDd">
+                                        <rect key="frame" x="147" y="0.0" width="54" height="61"/>
+                                        <state key="normal" title="Photo 2">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="controlButtonPressed:" destination="NVf-ri-wOz" eventType="touchUpInside" id="JLc-7q-Haf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIG-xj-Vks">
+                                <rect key="frame" x="319" y="854" width="150" height="150"/>
+                                <state key="normal" image="cameraButton.png"/>
+                                <connections>
+                                    <action selector="cameraPressed:" destination="NVf-ri-wOz" eventType="touchUpInside" id="4K2-Pl-OAX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c02-PE-h3C">
+                                <rect key="frame" x="20" y="12" width="256" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="NVf-ri-wOz" eventType="touchUpInside" id="4i6-Yy-L9A"/>
+                                    <action selector="backButton:" destination="hq3-W0-wHB" eventType="touchUpInside" id="I6k-hv-VE7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="69u-Ck-frY"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="vIG-xj-Vks" id="qNq-Vl-ogV"/>
+                        <outlet property="menuView" destination="561-b9-uOG" id="8Xs-f3-EjR"/>
+                        <outlet property="scrollView" destination="Tjw-nN-XjH" id="xxU-iy-ebr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3J-pb-zCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -828,28 +878,12 @@
                                     <action selector="recordButtonPressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="n5R-Yh-waP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E9-mi-gSg">
-                                <rect key="frame" x="274" y="383" width="220" height="120"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Set the Stage"/>
-                                <connections>
-                                    <action selector="stagePressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="ZEk-dA-3AK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
-                                <rect key="frame" x="274" y="591" width="220" height="120"/>
+                                <rect key="frame" x="274" y="452" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Photos"/>
                                 <connections>
                                     <segue destination="NVf-ri-wOz" kind="push" id="aO6-k5-doX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
-                                <rect key="frame" x="274" y="771" width="220" height="120"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Change Text"/>
-                                <connections>
-                                    <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-Bw-2bw">
@@ -879,6 +913,14 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
+                                <rect key="frame" x="274" y="725" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Change Text"/>
+                                <connections>
+                                    <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -886,7 +928,6 @@
                     <connections>
                         <outlet property="photosButton" destination="v3z-PE-PpK" id="pC3-8Y-V8N"/>
                         <outlet property="recordButton" destination="H7K-hd-QCU" id="Afo-Tp-xtZ"/>
-                        <outlet property="stageButton" destination="7E9-mi-gSg" id="5vo-9p-os8"/>
                         <outlet property="textButton" destination="60u-DP-UCe" id="4cf-Yx-oOo"/>
                     </connections>
                 </viewController>
@@ -1001,7 +1042,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xj7-c5-3vx"/>
+        <segue reference="XEF-lI-ESO"/>
         <segue reference="Ms2-9e-4By"/>
-        <segue reference="bIa-gG-DgK"/>
     </inferredMetricsTieBreakers>
 </document>

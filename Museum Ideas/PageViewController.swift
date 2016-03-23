@@ -38,6 +38,10 @@ class PageViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func backButtonPressed(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func getDocumentsDirectory() -> NSString {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0]

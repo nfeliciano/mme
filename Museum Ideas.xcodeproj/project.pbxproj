@@ -30,6 +30,8 @@
 		094E0C891C49295900447B58 /* instructions-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C881C49295900447B58 /* instructions-icon.png */; };
 		094E0C8B1C4929E400447B58 /* book-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 094E0C8A1C4929E400447B58 /* book-icon.png */; };
 		095EA2781C85948600C78CDE /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095EA2771C85948600C78CDE /* TextViewController.swift */; };
+		0972CAEA1CA1719600C37E2C /* To Do in Resources */ = {isa = PBXBuildFile; fileRef = 0972CAE91CA1719600C37E2C /* To Do */; };
+		0972CAF01CA172B500C37E2C /* SamplePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972CAEF1CA172B500C37E2C /* SamplePhotosViewController.swift */; };
 		09C07E561C8F630E000C3E43 /* DesignerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C07E551C8F630E000C3E43 /* DesignerViewController.swift */; };
 		09C07E581C8F6A13000C3E43 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C07E571C8F6A13000C3E43 /* CommonMethods.swift */; };
 		09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614501BFB2CB800CAE20C /* StationsViewController.swift */; };
@@ -84,6 +86,8 @@
 		094E0C881C49295900447B58 /* instructions-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-icon.png"; sourceTree = "<group>"; };
 		094E0C8A1C4929E400447B58 /* book-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-icon.png"; sourceTree = "<group>"; };
 		095EA2771C85948600C78CDE /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		0972CAE91CA1719600C37E2C /* To Do */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "To Do"; sourceTree = "<group>"; };
+		0972CAEF1CA172B500C37E2C /* SamplePhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplePhotosViewController.swift; sourceTree = "<group>"; };
 		09C07E551C8F630E000C3E43 /* DesignerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignerViewController.swift; sourceTree = "<group>"; };
 		09C07E571C8F6A13000C3E43 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		09C614501BFB2CB800CAE20C /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		092139331BCD964700C66FDB = {
 			isa = PBXGroup;
 			children = (
+				0972CAE91CA1719600C37E2C /* To Do */,
 				0921393E1BCD964700C66FDB /* Museum Ideas */,
 				0921396D1BCD9E8500C66FDB /* Resources */,
 				092139531BCD964700C66FDB /* Museum IdeasTests */,
@@ -145,11 +150,12 @@
 				092139761BCDC1F500C66FDB /* GuideViewController.swift */,
 				09C614501BFB2CB800CAE20C /* StationsViewController.swift */,
 				09C614541BFB3C2600CAE20C /* StationViewController.swift */,
-				0921B9981C3BD3920029FC48 /* BooksViewController.swift */,
-				0921B9A01C3BDF040029FC48 /* PageViewController.swift */,
 				09C07E551C8F630E000C3E43 /* DesignerViewController.swift */,
 				094E0C841C491E6F00447B58 /* DesignViewController.swift */,
+				0972CAEF1CA172B500C37E2C /* SamplePhotosViewController.swift */,
 				095EA2771C85948600C78CDE /* TextViewController.swift */,
+				0921B9981C3BD3920029FC48 /* BooksViewController.swift */,
+				0921B9A01C3BDF040029FC48 /* PageViewController.swift */,
 				09C07E571C8F6A13000C3E43 /* CommonMethods.swift */,
 				092139431BCD964700C66FDB /* Main.storyboard */,
 				092139461BCD964700C66FDB /* Assets.xcassets */,
@@ -311,6 +317,7 @@
 				090C57541C3A618600A5EFD9 /* emptyImage.png in Resources */,
 				092139731BCDA2D400C66FDB /* recordButton.png in Resources */,
 				094E0C891C49295900447B58 /* instructions-icon.png in Resources */,
+				0972CAEA1CA1719600C37E2C /* To Do in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */,
@@ -341,6 +348,7 @@
 			files = (
 				092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */,
 				092139401BCD964700C66FDB /* AppDelegate.swift in Sources */,
+				0972CAF01CA172B500C37E2C /* SamplePhotosViewController.swift in Sources */,
 				09C07E581C8F6A13000C3E43 /* CommonMethods.swift in Sources */,
 				092139771BCDC1F500C66FDB /* GuideViewController.swift in Sources */,
 				09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */,
