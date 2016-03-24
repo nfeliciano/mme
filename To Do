@@ -1,6 +1,7 @@
 Books:
-    - Back button work
+    - Back button work [DONE]
     - All the pages
+    - Left justify
 
 Activities/Stations:
     - Straight to station select screen
@@ -12,6 +13,8 @@ Intro:
 
 Design:
     - Limit text to just photo and video for intro
+    - No 'photos' here'
+    - Name station
 
 Overall:
     - Link info button to each activity video

@@ -173,6 +173,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="JKV-X4-aPh"/>
+                    <connections>
+                        <outlet property="backButton" destination="Hmi-yq-pEP" id="aZM-Ff-Vch"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAl-fy-xWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -841,7 +844,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="NVf-ri-wOz" eventType="touchUpInside" id="4i6-Yy-L9A"/>
-                                    <action selector="backButton:" destination="hq3-W0-wHB" eventType="touchUpInside" id="I6k-hv-VE7"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -10,11 +10,24 @@ import UIKit
 
 class BooksViewController: UIViewController, UIPageViewControllerDataSource {
     
+    @IBOutlet weak var backButton: UIButton!
+    
     var pageViewController: UIPageViewController!
     var pageTitles: NSMutableArray!
     var pageImages: NSArray!
     
     var station: Int!
+    
+    /*pages:
+    1 - Intro with stage photo
+    2 - Sample photo 1
+    3 - Sample photo 2
+    4 - Photo 1
+    5 - Photo 2
+    6 - Photo 3
+    7 - Video
+    8 - End with self photo
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +75,8 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
 //        self.pageImages = NSArray(objects: "station\(sender.tag)-image1.png", "station\(sender.tag)-image2.png", "station\(sender.tag)-image3.png")
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
+        self.backButton.titleLabel?.textColor = UIColor.blackColor()
+        self.view.bringSubviewToFront(backButton)
     }
     
     func viewControllerAtIndex(index: Int) -> PageViewController {
