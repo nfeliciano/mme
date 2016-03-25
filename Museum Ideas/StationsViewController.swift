@@ -42,8 +42,10 @@ class StationsViewController: UIViewController {
             station.station = 1;
         } else if (segue.identifier == "stationTwo") {
             station.station = 2;
-        } else {
+        } else if (segue.identifier == "stationThree") {
             station.station = 3;
+        } else if (segue.identifier == "stationIntro") {
+            station.station = 0;
         }
     }
     

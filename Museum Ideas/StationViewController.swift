@@ -18,7 +18,8 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var scrollView : UIScrollView!
     @IBOutlet weak var menuView : UIView!
     
-    var station: Int!
+    var station: Int! = -1
+    var numPages: Int! = 4
     var currentPic: Int! = 1
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet weak var instructionsText: UILabel!
@@ -27,10 +28,17 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         super.viewDidLoad()
         
         titleField.text = "Station \(station)"
+        if (station == 0) {
+            titleField.text = "Introduction"
+        }
         let defaults = NSUserDefaults.standardUserDefaults()
         instructionsText.text = defaults.stringForKey("station\(station)-activityText1")
         
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*4, self.scrollView.frame.size.height);
+        if (station == 0) {
+            numPages = 2
+            self.changeMenuViewToTwo()
+        }
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * CGFloat(numPages), self.scrollView.frame.size.height);
         self.scrollView.delegate = self
         
         let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
@@ -62,7 +70,19 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-        let tag = sender.tag - 100
+        let tag :Int!
+        if (sender.tag == 101) {
+            tag = 1
+        } else if (sender.tag == 102) {
+            tag = 2
+        } else if (sender.tag == 103) {
+            tag = 3
+        } else if (sender.tag == 104) {
+            if (station == 0) { tag = 2 }
+            else { tag = 4 }
+        } else {
+            return
+        }
         currentPic = tag
         self.scrollView.setContentOffset(CGPointMake(CGFloat(tag-1)*self.scrollView.frame.size.width, 0), animated: true)
     }
@@ -129,7 +149,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func loadImages() {
-        for var i = 1; i < 4; i++ {
+        for var i = 1; i < numPages; i++ {
             let fileManager = NSFileManager.defaultManager()
             let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(i).png")
             if (fileManager.fileExistsAtPath(path)) {
@@ -155,7 +175,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
             image = UIImage(named: "emptyVideo.png")!
             
         }
-        self.addImagetoScrollViewAtPage(image, page: 3)
+        self.addImagetoScrollViewAtPage(image, page: numPages-1)
     }
     
     func playThisVideo(sender : UITapGestureRecognizer) {
@@ -174,8 +194,26 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
+    func changeMenuViewToTwo() {
+        let photoButton:UIButton = self.menuView.viewWithTag(101) as! UIButton
+        let videoButton:UIButton = self.menuView.viewWithTag(104) as! UIButton
+        
+        let photoTwo:UIButton = self.menuView.viewWithTag(102) as! UIButton
+        let photoThree:UIButton = self.menuView.viewWithTag(103) as! UIButton
+        photoTwo.removeFromSuperview()
+        photoThree.removeFromSuperview()
+        
+        //TODO: still a problem
+//        self.menuView.frame = CGRectMake(self.menuView.frame.origin.x, self.menuView.frame.origin.y, self.menuView.frame.size.width-200, self.menuView.frame.size.height)
+//        photoButton.titleLabel?.text = "Photo"
+//        videoButton.titleLabel?.text = "Video"
+//        photoButton.center = CGPointMake(self.menuView.frame.size.width / 3, photoButton.center.y)
+//        videoButton.center = CGPointMake(self.menuView.frame.size.width*2 / 3, photoButton.center.y)
+    }
+    
     func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {
         for imageView in self.scrollView.subviews {
+            //bad code..
             if (imageView.tag == page+10) {
                 let replaceView : UIImageView = imageView as! UIImageView
                 replaceView.image = imageToAdd

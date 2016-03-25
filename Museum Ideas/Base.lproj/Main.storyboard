@@ -26,9 +26,6 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="cwm-3g-lGu" kind="push" id="zt1-8p-VkL"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jT-zz-7DQ">
                                 <rect key="frame" x="309" y="773" width="150" height="150"/>
@@ -71,13 +68,6 @@
                                 <rect key="frame" x="0.0" y="165" width="768" height="600"/>
                                 <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-0O-5XB">
-                                <rect key="frame" x="309" y="773" width="150" height="150"/>
-                                <state key="normal" backgroundImage="recordButton.png"/>
-                                <connections>
-                                    <action selector="videoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQl-su-cK6"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-AY-bT0">
                                 <rect key="frame" x="259" y="96" width="250" height="61"/>
                                 <subviews>
@@ -102,6 +92,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-0O-5XB">
+                                <rect key="frame" x="309" y="773" width="150" height="150"/>
+                                <state key="normal" backgroundImage="recordButton.png"/>
+                                <connections>
+                                    <action selector="videoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQl-su-cK6"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="da2-PO-kaP"/>
@@ -247,17 +244,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-nq-i5B">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
-                                <rect key="frame" x="303" y="302" width="162" height="162"/>
-                                <state key="normal" title="Station 1" backgroundImage="button_bg.png">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-3f-h2X">
+                                <rect key="frame" x="120" y="287" width="162" height="162"/>
+                                <state key="normal" title="Introduction" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationOne" id="dib-cK-xW2"/>
+                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationIntro" id="KQO-Hk-tCG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-eo-QaU">
-                                <rect key="frame" x="303" y="529" width="162" height="162"/>
+                                <rect key="frame" x="120" y="617" width="162" height="162"/>
                                 <state key="normal" title="Station 2" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -266,7 +263,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-cv-T4z">
-                                <rect key="frame" x="303" y="762" width="162" height="162"/>
+                                <rect key="frame" x="485" y="617" width="162" height="162"/>
                                 <state key="normal" title="Station 3" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -307,6 +304,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
+                                <rect key="frame" x="485" y="287" width="162" height="162"/>
+                                <state key="normal" title="Station 1" backgroundImage="button_bg.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="viT-2d-iQn" kind="push" identifier="stationOne" id="dib-cK-xW2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -465,7 +471,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <state key="normal" title="Activities"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="SsT-9o-Zzd"/>
+                                    <segue destination="cwm-3g-lGu" kind="push" id="buu-wH-gkh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1044,7 +1050,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xj7-c5-3vx"/>
-        <segue reference="XEF-lI-ESO"/>
-        <segue reference="Ms2-9e-4By"/>
+        <segue reference="KQO-Hk-tCG"/>
+        <segue reference="bIa-gG-DgK"/>
     </inferredMetricsTieBreakers>
 </document>
