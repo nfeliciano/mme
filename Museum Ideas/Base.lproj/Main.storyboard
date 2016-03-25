@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hot-ss-x3K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hot-ss-x3K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
@@ -889,8 +889,6 @@
                                     <action selector="recordButtonPressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="n5R-Yh-waP"/>
                                 </connections>
                             </button>
-<<<<<<< Updated upstream
-=======
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E9-mi-gSg">
                                 <rect key="frame" x="274" y="383" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -899,7 +897,6 @@
                                     <action selector="stagePressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="ZEk-dA-3AK"/>
                                 </connections>
                             </button>
->>>>>>> Stashed changes
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
                                 <rect key="frame" x="274" y="452" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -908,17 +905,6 @@
                                     <segue destination="NVf-ri-wOz" kind="push" id="aO6-k5-doX"/>
                                 </connections>
                             </button>
-<<<<<<< Updated upstream
-=======
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
-                                <rect key="frame" x="258" y="771" width="252" height="120"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Text for Ap &amp; Book"/>
-                                <connections>
-                                    <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
-                                </connections>
-                            </button>
->>>>>>> Stashed changes
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-Bw-2bw">
                                 <rect key="frame" x="64" y="-11" width="119" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -947,9 +933,9 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
-                                <rect key="frame" x="274" y="725" width="220" height="120"/>
+                                <rect key="frame" x="258" y="771" width="252" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Change Text"/>
+                                <state key="normal" title="Text for Ap &amp; Book"/>
                                 <connections>
                                     <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
                                 </connections>
