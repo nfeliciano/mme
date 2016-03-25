@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hot-ss-x3K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hot-ss-x3K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
@@ -9,8 +9,8 @@
             <objects>
                 <viewController title="Introduction-VC" id="BYZ-38-t0r" customClass="ViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="nYD-1G-7gB"/>
+                        <viewControllerLayoutGuide type="bottom" id="tzs-c7-ITO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -124,8 +124,8 @@
             <objects>
                 <viewController id="hq3-W0-wHB" customClass="BooksViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hwV-zk-80t"/>
-                        <viewControllerLayoutGuide type="bottom" id="hsp-YS-uAE"/>
+                        <viewControllerLayoutGuide type="top" id="uuq-1x-one"/>
+                        <viewControllerLayoutGuide type="bottom" id="a6R-wk-hOE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3M3-xt-thL">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -194,8 +194,8 @@
             <objects>
                 <viewController storyboardIdentifier="PageViewController" id="LcX-UJ-g8P" customClass="PageViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WTJ-ha-7BM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qrj-wd-HWs"/>
+                        <viewControllerLayoutGuide type="top" id="r1Y-12-EX3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wcr-mZ-ZTT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b3H-pM-8ff">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -213,7 +213,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Su-JDe">
                                 <rect key="frame" x="145" y="240" width="479" height="491"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text text text text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-E4-XXR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your text here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-E4-XXR">
                                 <rect key="frame" x="145" y="158" width="226" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,8 +237,8 @@
             <objects>
                 <viewController id="cwm-3g-lGu" customClass="StationsViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="C0e-2E-Ya9"/>
-                        <viewControllerLayoutGuide type="bottom" id="CNp-E7-Wol"/>
+                        <viewControllerLayoutGuide type="top" id="KM4-AG-ub8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q97-IH-1Yp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DWO-Vg-Her">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -325,8 +325,8 @@
             <objects>
                 <viewController id="viT-2d-iQn" customClass="StationViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tPO-0A-Omd"/>
-                        <viewControllerLayoutGuide type="bottom" id="oFU-JQ-vvG"/>
+                        <viewControllerLayoutGuide type="top" id="RLe-x8-gX6"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lp-ZF-d3e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lJM-Oe-fUt">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -445,8 +445,8 @@
             <objects>
                 <viewController id="K7T-hj-VD7" customClass="GuideViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MYh-Yx-Vka"/>
-                        <viewControllerLayoutGuide type="bottom" id="yoH-5K-yuA"/>
+                        <viewControllerLayoutGuide type="top" id="cHF-Ai-Y4t"/>
+                        <viewControllerLayoutGuide type="bottom" id="IPk-wz-hva"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kOZ-YM-e9J">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -468,6 +468,9 @@
                                     <segue destination="BYZ-38-t0r" kind="push" id="SsT-9o-Zzd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nwo-lJ-7Ux">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.56488992082241507" green="0.86222424832593325" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -483,17 +486,17 @@
             <objects>
                 <viewController id="d9g-X1-Kl1" customClass="DesignerViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UWO-6K-0xh"/>
-                        <viewControllerLayoutGuide type="bottom" id="dyn-Rm-YMz"/>
+                        <viewControllerLayoutGuide type="top" id="14O-wH-iAi"/>
+                        <viewControllerLayoutGuide type="bottom" id="yhj-fs-jpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XbE-c8-B5C">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-by-HTf">
-                                <rect key="frame" x="250" y="289" width="268" height="120"/>
+                                <rect key="frame" x="246" y="289" width="276" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Introduction Activity"/>
+                                <state key="normal" title="Your Ap Introduction"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="lum-xf-pZ3"/>
                                     <segue destination="xAJ-B9-U0x" kind="push" identifier="stationIntro" id="xj7-c5-3vx"/>
@@ -502,7 +505,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMN-mg-pgN">
                                 <rect key="frame" x="274" y="485" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Activity 1"/>
+                                <state key="normal" title="Station 1"/>
                                 <connections>
                                     <action selector="stagePressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="bx7-Vm-Ek2"/>
                                     <segue destination="xAJ-B9-U0x" kind="push" identifier="stationOne" id="KFL-bM-pLY"/>
@@ -511,7 +514,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-Z6-3Pm">
                                 <rect key="frame" x="274" y="693" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Activity 2"/>
+                                <state key="normal" title="Station 2"/>
                                 <connections>
                                     <segue destination="xAJ-B9-U0x" kind="push" identifier="stationTwo" id="TgV-C4-wgu"/>
                                 </connections>
@@ -519,7 +522,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9w-Wl-9ff">
                                 <rect key="frame" x="274" y="873" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Activity 3"/>
+                                <state key="normal" title="Station 3"/>
                                 <connections>
                                     <segue destination="xAJ-B9-U0x" kind="push" identifier="stationThree" id="8gX-XX-hEh"/>
                                 </connections>
@@ -527,7 +530,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgQ-u9-lB2">
                                 <rect key="frame" x="274" y="135" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Set the Stage"/>
+                                <state key="normal" title="Ap Wallpaper"/>
                                 <connections>
                                     <action selector="stagePressed:" destination="d9g-X1-Kl1" eventType="touchUpInside" id="mW8-N1-Xa6"/>
                                 </connections>
@@ -581,8 +584,8 @@
             <objects>
                 <viewController id="9yG-Er-KbZ" customClass="TextViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jIh-CO-2xJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ktm-t4-PKc"/>
+                        <viewControllerLayoutGuide type="top" id="jGA-wj-COM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qv4-pj-fia"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yAP-jG-cah">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -740,8 +743,8 @@
                                     <outlet property="delegate" destination="9yG-Er-KbZ" id="wKf-wq-2EF"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFS-oR-PyN">
-                                <rect key="frame" x="308" y="118" width="152" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Station Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFS-oR-PyN">
+                                <rect key="frame" x="311" y="118" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -792,8 +795,8 @@
             <objects>
                 <viewController id="NVf-ri-wOz" customClass="SamplePhotosViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tNq-Zh-f4o"/>
-                        <viewControllerLayoutGuide type="bottom" id="TgT-To-Dbp"/>
+                        <viewControllerLayoutGuide type="top" id="1hn-Ed-fhv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kqz-ZG-l6h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KXN-ZP-rZk">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -865,8 +868,8 @@
             <objects>
                 <viewController id="xAJ-B9-U0x" customClass="DesignViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GH7-qO-QhN"/>
-                        <viewControllerLayoutGuide type="bottom" id="m34-d8-yum"/>
+                        <viewControllerLayoutGuide type="top" id="P2S-Qd-yXj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Azj-TO-Vly"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pwH-Ml-IhF">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -875,19 +878,41 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-hd-QCU">
                                 <rect key="frame" x="260" y="187" width="248" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Record Guide"/>
+                                <state key="normal" title="Video Guide"/>
                                 <connections>
                                     <action selector="recordButtonPressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="n5R-Yh-waP"/>
                                 </connections>
                             </button>
+<<<<<<< Updated upstream
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E9-mi-gSg">
+                                <rect key="frame" x="274" y="383" width="220" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Station Photo"/>
+                                <connections>
+                                    <action selector="stagePressed:" destination="xAJ-B9-U0x" eventType="touchUpInside" id="ZEk-dA-3AK"/>
+                                </connections>
+                            </button>
+>>>>>>> Stashed changes
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
                                 <rect key="frame" x="274" y="452" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Photos"/>
+                                <state key="normal" title="Photos for Book"/>
                                 <connections>
                                     <segue destination="NVf-ri-wOz" kind="push" id="aO6-k5-doX"/>
                                 </connections>
                             </button>
+<<<<<<< Updated upstream
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
+                                <rect key="frame" x="258" y="771" width="252" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Text for Ap &amp; Book"/>
+                                <connections>
+                                    <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
+                                </connections>
+                            </button>
+>>>>>>> Stashed changes
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M1-Bw-2bw">
                                 <rect key="frame" x="64" y="-11" width="119" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -960,8 +985,8 @@
             <objects>
                 <viewController id="GGV-vl-9FW" customClass="StationsViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kf5-lt-2H7"/>
-                        <viewControllerLayoutGuide type="bottom" id="BBV-zS-MRN"/>
+                        <viewControllerLayoutGuide type="top" id="5KY-qI-xYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="TXc-9y-Zek"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Jo-rw-fHX">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -1039,6 +1064,7 @@
         <image name="button_bg.png" width="400" height="400"/>
         <image name="cameraButton.png" width="256" height="256"/>
         <image name="instructions-icon.png" width="256" height="256"/>
+        <image name="mainBackground.png" width="900" height="1200"/>
         <image name="paperBackground.png" width="225" height="225"/>
         <image name="recordButton.png" width="128" height="128"/>
     </resources>
