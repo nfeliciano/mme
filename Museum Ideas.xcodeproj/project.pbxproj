@@ -37,6 +37,8 @@
 		09C614511BFB2CB900CAE20C /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614501BFB2CB800CAE20C /* StationsViewController.swift */; };
 		09C614531BFB38D700CAE20C /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C614521BFB38D700CAE20C /* button_bg.png */; };
 		09C614551BFB3C2600CAE20C /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C614541BFB3C2600CAE20C /* StationViewController.swift */; };
+		290D460B1CA1C6F900A43B8C /* mainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 290D460A1CA1C6F900A43B8C /* mainBackground.png */; };
+		290D460D1CA23EA700A43B8C /* Circle Border.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 290D460C1CA23EA700A43B8C /* Circle Border.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		09C614501BFB2CB800CAE20C /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
 		09C614521BFB38D700CAE20C /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		09C614541BFB3C2600CAE20C /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
+		290D460A1CA1C6F900A43B8C /* mainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBackground.png; sourceTree = "<group>"; };
+		290D460C1CA23EA700A43B8C /* Circle Border.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Circle Border.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 		0921396D1BCD9E8500C66FDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				290D460C1CA23EA700A43B8C /* Circle Border.jpg */,
+				290D460A1CA1C6F900A43B8C /* mainBackground.png */,
 				094E0C8A1C4929E400447B58 /* book-icon.png */,
 				094E0C881C49295900447B58 /* instructions-icon.png */,
 				094E0C861C4928A100447B58 /* back-icon.png */,
@@ -316,10 +322,12 @@
 				0921394A1BCD964700C66FDB /* LaunchScreen.storyboard in Resources */,
 				090C57541C3A618600A5EFD9 /* emptyImage.png in Resources */,
 				092139731BCDA2D400C66FDB /* recordButton.png in Resources */,
+				290D460B1CA1C6F900A43B8C /* mainBackground.png in Resources */,
 				094E0C891C49295900447B58 /* instructions-icon.png in Resources */,
 				0972CAEA1CA1719600C37E2C /* To Do in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
+				290D460D1CA23EA700A43B8C /* Circle Border.jpg in Resources */,
 				090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */,
 				092139451BCD964700C66FDB /* Main.storyboard in Resources */,
 			);
