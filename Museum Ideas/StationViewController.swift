@@ -47,6 +47,10 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(StationViewController.menuSwipe(_:)))
         menuLeftGesture.direction = .Left
         self.menuView.addGestureRecognizer(menuLeftGesture)
+        
+        if (numPages == 2) {
+            self.changeMenuViewToTwo()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,9 +60,6 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if (numPages == 2) {
-            self.changeMenuViewToTwo()
-        }
         self.loadImages()
     }
     
@@ -214,8 +215,8 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         
         //TODO: still a problem
         self.menuView.frame = CGRectMake(self.menuView.frame.origin.x, self.menuView.frame.origin.y, self.menuView.frame.size.width-200, self.menuView.frame.size.height)
-        newPhotoButton.titleLabel?.text = "P"
-        newVideoButton.titleLabel?.text = "V"
+        newPhotoButton.setTitle("Photo", forState: .Normal)
+        newVideoButton.setTitle("Video", forState: .Normal)
     }
     
     func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {

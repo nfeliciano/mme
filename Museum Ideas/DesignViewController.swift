@@ -12,12 +12,12 @@ import AVFoundation
 import MobileCoreServices
 import Darwin
 
-class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var station: Int!
     
+    @IBOutlet weak var stationName: UITextField!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var stageButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
 
@@ -25,6 +25,29 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let title = defaults.objectForKey("station\(station)-name") {
+            self.stationName.text = title as! String
+        } else {
+            switch(station) {
+                case 0:
+                    self.stationName.text = "Introduction"
+                    break
+                case 1:
+                    self.stationName.text = "Station 1"
+                    break
+                case 2:
+                    self.stationName.text = "Station 2"
+                    break
+                case 3:
+                    self.stationName.text = "Station 3"
+                    break
+                default:
+                    self.stationName.text = "No Station"
+                    break
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,9 +138,10 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        print("END")
         if textField.text?.characters.count > 0 {
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults .setObject(textField.text, forKey: "activityName")
+            defaults .setObject(textField.text, forKey: "station\(station)-name")
         }
     }
     

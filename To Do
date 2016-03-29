@@ -12,7 +12,7 @@ Videos & Photos:
 
 Activities/Stations:
     - Straight to station select screen [DONE]
-    - Add 'intro' to station select, make necessary changes [ALMOST DONE]
+    - Add 'intro' to station select, make necessary changes [DONE]
 
 Intro:
     - Play Michael's video right away
@@ -20,8 +20,8 @@ Intro:
 
 Design:
     - Limit text to just photo and video for intro
-    - No 'photos' here'
-    - Name station
+    - No 'photos' here
+    - Name station [DONE]
 
 Overall:
     - Link info button to each activity video

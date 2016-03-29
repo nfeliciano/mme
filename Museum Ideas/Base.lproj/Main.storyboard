@@ -7,6 +7,7 @@
         <!--Introduction-VC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="Introduction-VC" id="BYZ-38-t0r" customClass="ViewController" customModule="Museum_Ideas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nYD-1G-7gB"/>
@@ -112,7 +113,6 @@
                         <outlet property="scrollView" destination="gNc-T1-dVP" id="sPc-CS-hp7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1361" y="818"/>
         </scene>
@@ -244,7 +244,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-nq-i5B">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-3f-h2X">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-3f-h2X">
                                 <rect key="frame" x="308" y="243" width="162" height="162"/>
                                 <state key="normal" title="Introduction" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +253,7 @@
                                     <segue destination="viT-2d-iQn" kind="push" identifier="stationIntro" id="KQO-Hk-tCG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-eo-QaU">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-eo-QaU">
                                 <rect key="frame" x="498" y="431" width="162" height="162"/>
                                 <state key="normal" title="Station 2" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -295,7 +295,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trp-J2-Cap">
                                 <rect key="frame" x="110" y="431" width="162" height="162"/>
                                 <state key="normal" title="Station 1" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -304,7 +304,7 @@
                                     <segue destination="viT-2d-iQn" kind="push" identifier="stationOne" id="dib-cK-xW2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-cv-T4z">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkR-cv-T4z">
                                 <rect key="frame" x="308" y="620" width="162" height="162"/>
                                 <state key="normal" title="Station 3" backgroundImage="button_bg.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -940,6 +940,14 @@
                                     <segue destination="NVf-ri-wOz" kind="push" id="aO6-k5-doX"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Station Name" borderStyle="roundedRect" placeholder="Change Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-cd-25w">
+                                <rect key="frame" x="146" y="131" width="476" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xAJ-B9-U0x" id="YKe-Hd-oSM"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -947,6 +955,7 @@
                     <connections>
                         <outlet property="photosButton" destination="v3z-PE-PpK" id="pC3-8Y-V8N"/>
                         <outlet property="recordButton" destination="H7K-hd-QCU" id="Afo-Tp-xtZ"/>
+                        <outlet property="stationName" destination="uNu-cd-25w" id="Kut-X3-tBQ"/>
                         <outlet property="textButton" destination="60u-DP-UCe" id="4cf-Yx-oOo"/>
                     </connections>
                 </viewController>
@@ -986,7 +995,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KQO-Hk-tCG"/>
-        <segue reference="xj7-c5-3vx"/>
-        <segue reference="bIa-gG-DgK"/>
+        <segue reference="8gX-XX-hEh"/>
+        <segue reference="MJy-k1-deb"/>
     </inferredMetricsTieBreakers>
 </document>
