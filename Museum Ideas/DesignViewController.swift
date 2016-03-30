@@ -158,7 +158,6 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toText") {
             let toStation:TextViewController = segue.destinationViewController as! TextViewController
-            print("over to \(station)")
             toStation.station = station
         } else if (segue.identifier == "toPhoto") {
             let toStation:SamplePhotosViewController = segue.destinationViewController as! SamplePhotosViewController
