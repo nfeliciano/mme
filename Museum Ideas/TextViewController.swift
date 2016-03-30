@@ -14,6 +14,7 @@ class TextViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("station \(station)")
         let defaults = NSUserDefaults.standardUserDefaults()
         for view in self.view.subviews {
             if let textField = view as? UITextField {
@@ -30,17 +31,26 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.text?.characters.count > 0 {
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults .setObject(textField.text, forKey: "station\(station)-activityText\(textField.tag)")
-            print("save to activityText\(textField.tag)")
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func backButtonPressed(sender : UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
     
 
     /*

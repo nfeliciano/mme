@@ -70,7 +70,11 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let page: Int = Int(scrollView.contentOffset.x / self.view.frame.size.width)
         let defaults = NSUserDefaults.standardUserDefaults()
-        self.instructionsText.text = defaults.stringForKey("station\(station)-activityText\(page+1)")
+        if let instructions = defaults.stringForKey("station\(station)-activityText\(page+1)") {
+            self.instructionsText.text = instructions
+        } else {
+            self.instructionsText.text = "No Instructions Yet"
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {

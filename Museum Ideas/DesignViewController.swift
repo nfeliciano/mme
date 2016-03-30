@@ -18,12 +18,13 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet weak var stationName: UITextField!
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("bleh \(station)")
         // Do any additional setup after loading the view.
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -47,6 +48,11 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                     self.stationName.text = "No Station"
                     break
             }
+        }
+        
+        if (station == 0) {
+            self.photoButton.hidden = true
+            self.photosButton.hidden = true
         }
     }
 
@@ -110,7 +116,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-guide.mp4")
                             videoData!.writeToFile(filename, atomically: true)
                             
                             
@@ -121,7 +127,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
                         let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
                         if let data = UIImagePNGRepresentation(image) {
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-stationPhoto.png")
                             data.writeToFile(filename, atomically: true)
                             
                         }
@@ -138,7 +144,6 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        print("END")
         if textField.text?.characters.count > 0 {
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults .setObject(textField.text, forKey: "station\(station)-name")
@@ -152,11 +157,12 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toText") {
-            let station:TextViewController = segue.destinationViewController as! TextViewController
-            station.station = self.station
+            let toStation:TextViewController = segue.destinationViewController as! TextViewController
+            print("over to \(station)")
+            toStation.station = station
         } else if (segue.identifier == "toPhoto") {
-            let station:SamplePhotosViewController = segue.destinationViewController as! SamplePhotosViewController
-            station.station = self.station
+            let toStation:SamplePhotosViewController = segue.destinationViewController as! SamplePhotosViewController
+            toStation.station = station
         }
     }
 

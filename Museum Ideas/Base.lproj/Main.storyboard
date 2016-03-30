@@ -925,19 +925,19 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
-                                <rect key="frame" x="230" y="771" width="309" height="120"/>
+                                <rect key="frame" x="230" y="554" width="309" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Text for Station Activity"/>
                                 <connections>
-                                    <segue destination="9yG-Er-KbZ" kind="push" id="6cU-wx-Dlo"/>
+                                    <segue destination="9yG-Er-KbZ" kind="push" identifier="toText" id="Udt-oE-dmj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
-                                <rect key="frame" x="223" y="554" width="322" height="120"/>
+                                <rect key="frame" x="223" y="771" width="322" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Photos for Station Book"/>
                                 <connections>
-                                    <segue destination="NVf-ri-wOz" kind="push" id="aO6-k5-doX"/>
+                                    <segue destination="NVf-ri-wOz" kind="push" identifier="toPhoto" id="aO6-k5-doX"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Station Name" borderStyle="roundedRect" placeholder="Change Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-cd-25w">
@@ -953,6 +953,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6uG-Lq-TCx"/>
                     <connections>
+                        <outlet property="photoButton" destination="7E9-mi-gSg" id="yMO-y0-ocF"/>
                         <outlet property="photosButton" destination="v3z-PE-PpK" id="pC3-8Y-V8N"/>
                         <outlet property="recordButton" destination="H7K-hd-QCU" id="Afo-Tp-xtZ"/>
                         <outlet property="stationName" destination="uNu-cd-25w" id="Kut-X3-tBQ"/>
