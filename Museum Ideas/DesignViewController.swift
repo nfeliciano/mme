@@ -12,19 +12,48 @@ import AVFoundation
 import MobileCoreServices
 import Darwin
 
-class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class DesignViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var station: Int!
     
+    @IBOutlet weak var stationName: UITextField!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var stageButton: UIButton!
+    @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("bleh \(station)")
         // Do any additional setup after loading the view.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let title = defaults.objectForKey("station\(station)-name") {
+            self.stationName.text = title as! String
+        } else {
+            switch(station) {
+                case 0:
+                    self.stationName.text = "Introduction"
+                    break
+                case 1:
+                    self.stationName.text = "Station 1"
+                    break
+                case 2:
+                    self.stationName.text = "Station 2"
+                    break
+                case 3:
+                    self.stationName.text = "Station 3"
+                    break
+                default:
+                    self.stationName.text = "No Station"
+                    break
+            }
+        }
+        
+        if (station == 0) {
+            self.photoButton.hidden = true
+            self.photosButton.hidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,7 +116,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-guide.mp4")
                             videoData!.writeToFile(filename, atomically: true)
                             
                             
@@ -98,7 +127,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
                         let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
                         if let data = UIImagePNGRepresentation(image) {
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-stationPhoto.png")
                             data.writeToFile(filename, atomically: true)
                             
                         }
@@ -117,7 +146,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.text?.characters.count > 0 {
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults .setObject(textField.text, forKey: "activityName")
+            defaults .setObject(textField.text, forKey: "station\(station)-name")
         }
     }
     
@@ -128,11 +157,11 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toText") {
-            let station:TextViewController = segue.destinationViewController as! TextViewController
-            station.station = self.station
+            let toStation:TextViewController = segue.destinationViewController as! TextViewController
+            toStation.station = station
         } else if (segue.identifier == "toPhoto") {
-            let station:SamplePhotosViewController = segue.destinationViewController as! SamplePhotosViewController
-            station.station = self.station
+            let toStation:SamplePhotosViewController = segue.destinationViewController as! SamplePhotosViewController
+            toStation.station = station
         }
     }
 

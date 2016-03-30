@@ -26,6 +26,16 @@ class StationsViewController: UIViewController {
             let image: UIImage = UIImage(contentsOfFile: path)!
             self.backgroundImage.image = image
         }
+        
+        for (var i = 1; i <= 4; i += 1) {
+            let button : UIButton = self.view.viewWithTag(i) as! UIButton
+            var tag: Int = i
+            if (i == 4) { tag = 0 }
+//            defaults .setObject(textField.text, forKey: "station\(tag)-name")
+            if let stationName = defaults.stringForKey("station\(tag)-name") {
+                button.setTitle(stationName, forState: .Normal)
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

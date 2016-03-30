@@ -36,18 +36,26 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         
         if (station == 0) {
             numPages = 2
-            self.changeMenuViewToTwo()
         }
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * CGFloat(numPages), self.scrollView.frame.size.height);
         self.scrollView.delegate = self
         
-        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
+        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(StationViewController.menuSwipe(_:)))
         menuRightGesture.direction = .Right
         self.menuView.addGestureRecognizer(menuRightGesture)
         
-        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
+        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(StationViewController.menuSwipe(_:)))
         menuLeftGesture.direction = .Left
         self.menuView.addGestureRecognizer(menuLeftGesture)
+        
+        if (numPages == 2) {
+            self.changeMenuViewToTwo()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,7 +70,11 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let page: Int = Int(scrollView.contentOffset.x / self.view.frame.size.width)
         let defaults = NSUserDefaults.standardUserDefaults()
-        self.instructionsText.text = defaults.stringForKey("station\(station)-activityText\(page+1)")
+        if let instructions = defaults.stringForKey("station\(station)-activityText\(page+1)") {
+            self.instructionsText.text = instructions
+        } else {
+            self.instructionsText.text = "No Instructions Yet"
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -195,20 +207,20 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     func changeMenuViewToTwo() {
-        let photoButton:UIButton = self.menuView.viewWithTag(101) as! UIButton
-        let videoButton:UIButton = self.menuView.viewWithTag(104) as! UIButton
+        let newPhotoButton:UIButton = self.menuView.viewWithTag(102) as! UIButton
+        let newVideoButton:UIButton = self.menuView.viewWithTag(103) as! UIButton
         
-        let photoTwo:UIButton = self.menuView.viewWithTag(102) as! UIButton
-        let photoThree:UIButton = self.menuView.viewWithTag(103) as! UIButton
+        let photoOne:UIButton = self.menuView.viewWithTag(101) as! UIButton
+        let photoTwo:UIButton = self.menuView.viewWithTag(104) as! UIButton
+        photoOne.removeFromSuperview()
         photoTwo.removeFromSuperview()
-        photoThree.removeFromSuperview()
+        newPhotoButton.tag = 101
+        newVideoButton.tag = 104
         
         //TODO: still a problem
-//        self.menuView.frame = CGRectMake(self.menuView.frame.origin.x, self.menuView.frame.origin.y, self.menuView.frame.size.width-200, self.menuView.frame.size.height)
-//        photoButton.titleLabel?.text = "Photo"
-//        videoButton.titleLabel?.text = "Video"
-//        photoButton.center = CGPointMake(self.menuView.frame.size.width / 3, photoButton.center.y)
-//        videoButton.center = CGPointMake(self.menuView.frame.size.width*2 / 3, photoButton.center.y)
+        self.menuView.frame = CGRectMake(self.menuView.frame.origin.x, self.menuView.frame.origin.y, self.menuView.frame.size.width-200, self.menuView.frame.size.height)
+        newPhotoButton.setTitle("Photo", forState: .Normal)
+        newVideoButton.setTitle("Video", forState: .Normal)
     }
     
     func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {
