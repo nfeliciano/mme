@@ -1,5 +1,5 @@
 Books:
-    - Keyboard in the way of writing the last pages of the book.
+    - Keyboard in the way of writing the last pages of the book. [DONE]
     - Add book title
     - Text needs to save for each station.
     - Back button work [DONE]
@@ -9,6 +9,7 @@ Books:
 Videos & Photos:
     - Videos need to save for intro and each station [SAVING RIGHT, NOT YET LOADING RIGHT]
     - Text needs to save for intro and each station [DONE]
+    - Save videos and photos onto device
 
 Activities/Stations:
     - Straight to station select screen [DONE]

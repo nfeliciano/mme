@@ -943,23 +943,13 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60u-DP-UCe">
-                                <rect key="frame" x="230" y="554" width="309" height="120"/>
+                                <rect key="frame" x="230" y="771" width="309" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Text for Station Activity">
                                     <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="9yG-Er-KbZ" kind="push" identifier="toText" id="Udt-oE-dmj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
-                                <rect key="frame" x="223" y="771" width="322" height="120"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="Photos for Station Book">
-                                    <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NVf-ri-wOz" kind="push" identifier="toPhoto" id="aO6-k5-doX"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Station Name" borderStyle="roundedRect" placeholder="Change Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-cd-25w">
@@ -970,6 +960,16 @@
                                     <outlet property="delegate" destination="xAJ-B9-U0x" id="YKe-Hd-oSM"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-PE-PpK">
+                                <rect key="frame" x="223" y="554" width="322" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Photos for Station Book">
+                                    <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NVf-ri-wOz" kind="push" identifier="toPhoto" id="aO6-k5-doX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.38456672430038452" green="0.12791875004768372" blue="0.07896684855222702" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
