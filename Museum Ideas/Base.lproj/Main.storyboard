@@ -458,6 +458,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nwo-lJ-7Ux">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGt-JA-dnH">
                                 <rect key="frame" x="284" y="253" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="90"/>
@@ -478,9 +481,6 @@
                                     <segue destination="cwm-3g-lGu" kind="push" id="buu-wH-gkh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nwo-lJ-7Ux">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.56488992082241507" green="0.86222424832593325" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -587,9 +587,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2Y-wz-fgO">
-                                <rect key="frame" x="0.0" y="1" width="768" height="1024"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.5648899208" green="0.8622242483" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
