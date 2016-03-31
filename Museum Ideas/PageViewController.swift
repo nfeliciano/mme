@@ -22,6 +22,7 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
         let fileManager = NSFileManager.defaultManager()
         let path = getDocumentsDirectory().stringByAppendingPathComponent(imageFile)
+        self.imageView.contentMode = .ScaleAspectFill
         if (fileManager.fileExistsAtPath(path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
 //            let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
