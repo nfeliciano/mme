@@ -64,6 +64,9 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toBooks") {
+            return;
+        }
         let station:DesignViewController = segue.destinationViewController as! DesignViewController
         if (segue.identifier == "stationIntro") {
             station.station = 0;
