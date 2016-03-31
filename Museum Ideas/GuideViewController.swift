@@ -27,7 +27,7 @@ class GuideViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func playIntroVideo() {
-        let path = NSBundle.mainBundle().pathForResource("MuseumDesignIntro", ofType:"mov")
+        let path = NSBundle.mainBundle().pathForResource("MuseumDesignIntro", ofType:"mp4")
         let player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
         let playerController = AVPlayerViewController()
         playerController.player = player

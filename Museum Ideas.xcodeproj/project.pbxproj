@@ -13,6 +13,7 @@
 		0911F2D71CAD2F7B00BAF834 /* new_backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */; };
 		0911F2D81CAD2F7B00BAF834 /* new_bookbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */; };
 		0911F2D91CAD2F7B00BAF834 /* new_infobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D61CAD2F7B00BAF834 /* new_infobutton.png */; };
+		0911F2DA1CADAF0400BAF834 /* MuseumDesignIntro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2996A1501CAD7EA50090281F /* MuseumDesignIntro.mp4 */; };
 		092139401BCD964700C66FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921393F1BCD964700C66FDB /* AppDelegate.swift */; };
 		092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139411BCD964700C66FDB /* IntroductionViewController.swift */; };
 		092139451BCD964700C66FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092139431BCD964700C66FDB /* Main.storyboard */; };
@@ -43,7 +44,6 @@
 		290D460B1CA1C6F900A43B8C /* mainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 290D460A1CA1C6F900A43B8C /* mainBackground.png */; };
 		2996A14A1CAC59420090281F /* ButtonArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996A1491CAC59420090281F /* ButtonArt.png */; };
 		2996A14C1CAC59AD0090281F /* ButtonArt2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996A14B1CAC59AD0090281F /* ButtonArt2.png */; };
-		2996A14E1CACE7F30090281F /* MuseumDesignIntro.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,6 @@
 		290D460A1CA1C6F900A43B8C /* mainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBackground.png; sourceTree = "<group>"; };
 		2996A1491CAC59420090281F /* ButtonArt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt.png; sourceTree = "<group>"; };
 		2996A14B1CAC59AD0090281F /* ButtonArt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt2.png; sourceTree = "<group>"; };
-		2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = MuseumDesignIntro.mov; sourceTree = "<group>"; };
 		2996A1501CAD7EA50090281F /* MuseumDesignIntro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseumDesignIntro.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				2996A1501CAD7EA50090281F /* MuseumDesignIntro.mp4 */,
-				2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */,
 				0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */,
 				0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */,
 				0911F2D61CAD2F7B00BAF834 /* new_infobutton.png */,
@@ -348,10 +346,10 @@
 				0911F2D71CAD2F7B00BAF834 /* new_backbutton.png in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
 				0911F2D91CAD2F7B00BAF834 /* new_infobutton.png in Resources */,
-				2996A14E1CACE7F30090281F /* MuseumDesignIntro.mov in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				2996A14C1CAC59AD0090281F /* ButtonArt2.png in Resources */,
 				090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */,
+				0911F2DA1CADAF0400BAF834 /* MuseumDesignIntro.mp4 in Resources */,
 				092139451BCD964700C66FDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
