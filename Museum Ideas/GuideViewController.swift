@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import MobileCoreServices
 
-class GuideViewController: UIViewController {
+class GuideViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.playIntroVideo()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -22,4 +26,13 @@ class GuideViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func playIntroVideo() {
+        let path = NSBundle.mainBundle().pathForResource("MuseumDesignIntro", ofType:"mov")
+        let player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        self.presentViewController(playerController, animated: true) {
+            player.play()
+        }
+    }
 }
