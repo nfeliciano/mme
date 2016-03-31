@@ -107,6 +107,7 @@
 		2996A1491CAC59420090281F /* ButtonArt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt.png; sourceTree = "<group>"; };
 		2996A14B1CAC59AD0090281F /* ButtonArt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt2.png; sourceTree = "<group>"; };
 		2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = MuseumDesignIntro.mov; sourceTree = "<group>"; };
+		2996A1501CAD7EA50090281F /* MuseumDesignIntro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseumDesignIntro.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +201,7 @@
 		0921396D1BCD9E8500C66FDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2996A1501CAD7EA50090281F /* MuseumDesignIntro.mp4 */,
 				2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */,
 				0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */,
 				0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */,
