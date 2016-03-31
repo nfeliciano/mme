@@ -10,6 +10,8 @@ import UIKit
 
 class TextViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var bookTitle: UILabel!
+    
     var station: Int!
 
     override func viewDidLoad() {
@@ -21,6 +23,10 @@ class TextViewController: UIViewController, UITextFieldDelegate {
                     textField.text = text
                 }
             }
+        }
+        
+        if let title = defaults.objectForKey("station\(station)-name") {
+            self.bookTitle.text = "Book for \(title as! String)"
         }
         // Do any additional setup after loading the view.
     }
