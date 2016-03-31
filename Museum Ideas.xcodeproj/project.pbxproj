@@ -40,6 +40,7 @@
 		290D460B1CA1C6F900A43B8C /* mainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 290D460A1CA1C6F900A43B8C /* mainBackground.png */; };
 		2996A14A1CAC59420090281F /* ButtonArt.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996A1491CAC59420090281F /* ButtonArt.png */; };
 		2996A14C1CAC59AD0090281F /* ButtonArt2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2996A14B1CAC59AD0090281F /* ButtonArt2.png */; };
+		2996A14E1CACE7F30090281F /* MuseumDesignIntro.mov in Resources */ = {isa = PBXBuildFile; fileRef = 2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		290D460A1CA1C6F900A43B8C /* mainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainBackground.png; sourceTree = "<group>"; };
 		2996A1491CAC59420090281F /* ButtonArt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt.png; sourceTree = "<group>"; };
 		2996A14B1CAC59AD0090281F /* ButtonArt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonArt2.png; sourceTree = "<group>"; };
+		2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = MuseumDesignIntro.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		0921396D1BCD9E8500C66FDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */,
 				2996A1491CAC59420090281F /* ButtonArt.png */,
 				2996A14B1CAC59AD0090281F /* ButtonArt2.png */,
 				290D460A1CA1C6F900A43B8C /* mainBackground.png */,
@@ -279,6 +282,7 @@
 				TargetAttributes = {
 					0921393B1BCD964700C66FDB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = YQ5W3T6G79;
 					};
 					0921394F1BCD964700C66FDB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -330,6 +334,7 @@
 				094E0C891C49295900447B58 /* instructions-icon.png in Resources */,
 				0972CAEA1CA1719600C37E2C /* To Do in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
+				2996A14E1CACE7F30090281F /* MuseumDesignIntro.mov in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				2996A14C1CAC59AD0090281F /* ButtonArt2.png in Resources */,
 				090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */,
@@ -512,10 +517,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Museum Ideas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mme.Museum-Ideas";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -524,10 +531,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Museum Ideas/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "mme.Museum-Ideas";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
