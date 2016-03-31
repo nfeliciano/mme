@@ -10,6 +10,9 @@
 		090C57541C3A618600A5EFD9 /* emptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 090C57531C3A618600A5EFD9 /* emptyImage.png */; };
 		090C57561C3A62DC00A5EFD9 /* emptyVideo.png in Resources */ = {isa = PBXBuildFile; fileRef = 090C57551C3A62DC00A5EFD9 /* emptyVideo.png */; };
 		090C57581C3A656A00A5EFD9 /* videoPlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 090C57571C3A656A00A5EFD9 /* videoPlayButton.png */; };
+		0911F2D71CAD2F7B00BAF834 /* new_backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */; };
+		0911F2D81CAD2F7B00BAF834 /* new_bookbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */; };
+		0911F2D91CAD2F7B00BAF834 /* new_infobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0911F2D61CAD2F7B00BAF834 /* new_infobutton.png */; };
 		092139401BCD964700C66FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0921393F1BCD964700C66FDB /* AppDelegate.swift */; };
 		092139421BCD964700C66FDB /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092139411BCD964700C66FDB /* IntroductionViewController.swift */; };
 		092139451BCD964700C66FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 092139431BCD964700C66FDB /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 		090C57531C3A618600A5EFD9 /* emptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyImage.png; sourceTree = "<group>"; };
 		090C57551C3A62DC00A5EFD9 /* emptyVideo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyVideo.png; sourceTree = "<group>"; };
 		090C57571C3A656A00A5EFD9 /* videoPlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoPlayButton.png; sourceTree = "<group>"; };
+		0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_backbutton.png; sourceTree = "<group>"; };
+		0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_bookbutton.png; sourceTree = "<group>"; };
+		0911F2D61CAD2F7B00BAF834 /* new_infobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_infobutton.png; sourceTree = "<group>"; };
 		0921393C1BCD964700C66FDB /* Museum Ideas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Museum Ideas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0921393F1BCD964700C66FDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		092139411BCD964700C66FDB /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				2996A14D1CACE7F30090281F /* MuseumDesignIntro.mov */,
+				0911F2D41CAD2F7B00BAF834 /* new_backbutton.png */,
+				0911F2D51CAD2F7B00BAF834 /* new_bookbutton.png */,
+				0911F2D61CAD2F7B00BAF834 /* new_infobutton.png */,
 				2996A1491CAC59420090281F /* ButtonArt.png */,
 				2996A14B1CAC59AD0090281F /* ButtonArt2.png */,
 				290D460A1CA1C6F900A43B8C /* mainBackground.png */,
@@ -322,6 +331,7 @@
 				0921B99B1C3BDB660029FC48 /* bookBackground.png in Resources */,
 				094E0C8B1C4929E400447B58 /* book-icon.png in Resources */,
 				0921396F1BCD9E8500C66FDB /* intro_start.MOV in Resources */,
+				0911F2D81CAD2F7B00BAF834 /* new_bookbutton.png in Resources */,
 				0921B9A31C3BE3960029FC48 /* paperBackground.png in Resources */,
 				090C57581C3A656A00A5EFD9 /* videoPlayButton.png in Resources */,
 				094E0C871C4928A100447B58 /* back-icon.png in Resources */,
@@ -333,7 +343,9 @@
 				290D460B1CA1C6F900A43B8C /* mainBackground.png in Resources */,
 				094E0C891C49295900447B58 /* instructions-icon.png in Resources */,
 				0972CAEA1CA1719600C37E2C /* To Do in Resources */,
+				0911F2D71CAD2F7B00BAF834 /* new_backbutton.png in Resources */,
 				092139471BCD964700C66FDB /* Assets.xcassets in Resources */,
+				0911F2D91CAD2F7B00BAF834 /* new_infobutton.png in Resources */,
 				2996A14E1CACE7F30090281F /* MuseumDesignIntro.mov in Resources */,
 				092139751BCDA30E00C66FDB /* cameraButton.png in Resources */,
 				2996A14C1CAC59AD0090281F /* ButtonArt2.png in Resources */,
