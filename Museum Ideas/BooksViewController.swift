@@ -56,14 +56,15 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
         }
         let defaults = NSUserDefaults.standardUserDefaults()
         //17
-        for (var i:Int = 11; i <= 13; i++) {
+        for (var i:Int = 11; i <= 17; i++) {
             if let str = defaults.stringForKey("station\(station)-activityText\(i)") {
                 self.pageTitles.addObject(str)
             } else {
                 self.pageTitles.addObject("Untitled Page")
             }
         }
-        self.pageImages = NSArray(objects: "station1-image1.png", "station1-image2.png", "station1-image3.png")
+        self.pageTitles.addObject("Thanks for reading my book!")
+        self.pageImages = NSArray(objects: "activityStage.png", "station\(station)-samplePhoto1.png", "station\(station)-samplePhoto2.png", "station\(station)-image1.png", "station\(station)-image2.png", "station\(station)-image3.png", "videoPlayButton.png", "station0-image1.png")
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BookViewController") as! UIPageViewController
         self.pageViewController.dataSource = self
         var startVC = self.viewControllerAtIndex(0) as PageViewController

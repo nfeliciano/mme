@@ -47,6 +47,9 @@ class StationsViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toBooks") {
+            return;
+        }
         let station:StationViewController = segue.destinationViewController as! StationViewController
         if (segue.identifier == "stationOne") {
             station.station = 1;

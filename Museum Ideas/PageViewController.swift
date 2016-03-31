@@ -24,8 +24,13 @@ class PageViewController: UIViewController {
         let path = getDocumentsDirectory().stringByAppendingPathComponent(imageFile)
         if (fileManager.fileExistsAtPath(path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
-            let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
-            self.imageView.image = rotated
+//            let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
+            self.imageView.image = image
+        } else {
+            if (imageFile == "videoPlayButton.png") {
+                let image = UIImage(named: imageFile)
+                self.imageView.image = image
+            }
         }
         self.pageText.text = self.pageLabelText;
     }

@@ -166,8 +166,8 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
             let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(i).png")
             if (fileManager.fileExistsAtPath(path)) {
                 let image: UIImage = UIImage(contentsOfFile: path)!
-                let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
-                self.addImagetoScrollViewAtPage(rotated, page: i-1)
+//                let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
+                self.addImagetoScrollViewAtPage(image, page: i-1)
                 //add to image here
             } else {
                 //add empty image here
@@ -277,8 +277,9 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                     else
                     {
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                        let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
                         
-                        if let data = UIImagePNGRepresentation(temp) {
+                        if let data = UIImagePNGRepresentation(image) {
                             let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-image\(currentPic).png")
                             data.writeToFile(filename, atomically: true)
                             
@@ -286,7 +287,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                             for imageView in self.scrollView.subviews {
                                 if (imageView.tag >= 10 && imageView.tag < 13) {
                                     let replaceView : UIImageView = imageView as! UIImageView
-                                    replaceView.image = temp
+                                    replaceView.image = image
                                 }
                             }
                         }

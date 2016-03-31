@@ -43,7 +43,8 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
             let image: UIImage
             if (fileManager.fileExistsAtPath(path)) {
                 let initialImage : UIImage = UIImage(contentsOfFile: path)!
-                image = UIImage(CGImage: initialImage.CGImage!, scale: 1, orientation: .Right)
+//                image = UIImage(CGImage: initialImage.CGImage!, scale: 1, orientation: .Right)
+                image = initialImage
             } else {
                 image = UIImage(named: "emptyImage.png")!
             }
