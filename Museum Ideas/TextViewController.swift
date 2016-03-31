@@ -28,6 +28,21 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         if let title = defaults.objectForKey("station\(station)-name") {
             self.bookTitle.text = "Book for \(title as! String)"
         }
+        
+        if (station == 0) {
+            for view in self.view.subviews as [UIView] {
+                if let label = view as? UILabel {
+                    if (label.text == "Photo 1 Instruction") { continue }
+                    else if (label.text == "Photo 2 Instruction") { label.text = "Video Instruction" }
+                    else { label.removeFromSuperview() }
+                }
+                else if let textField = view as? UITextField {
+                    if (textField.tag == 1 || textField.tag == 2) { continue }
+                    else { textField.removeFromSuperview() }
+                }
+            }
+            self.bookTitle.removeFromSuperview()
+        }
         // Do any additional setup after loading the view.
     }
     
