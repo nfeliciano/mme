@@ -51,6 +51,8 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
         if (numPages == 2) {
             self.changeMenuViewToTwo()
         }
+        
+        self.playVideo()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,6 +81,27 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func infoButtonPressed(sender : UIButton) {
+        print("hello")
+        self.playVideo()
+    }
+    
+    func playVideo() {
+        let fileManager = NSFileManager.defaultManager()
+        
+        let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-guide.mp4")
+        if (fileManager.fileExistsAtPath(vidPath)) {
+            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+            let playerCtrl = AVPlayerViewController()
+            playerCtrl.player = player
+            self.presentViewController(playerCtrl, animated: true) {
+                playerCtrl.player?.play()
+            }
+        } else {
+            //TODO
+        }
     }
     
     @IBAction func buttonPressed(sender: UIButton) {

@@ -49,6 +49,8 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        
         if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
             
             let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage

@@ -18,13 +18,11 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet weak var stationName: UITextField!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("bleh \(station)")
         // Do any additional setup after loading the view.
         
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -51,7 +49,6 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         
         if (station == 0) {
-            self.photoButton.hidden = true
             self.photosButton.hidden = true
         }
     }

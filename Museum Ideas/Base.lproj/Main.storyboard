@@ -272,13 +272,6 @@
                                     <action selector="backButton:" destination="cwm-3g-lGu" eventType="touchUpInside" id="XC2-H9-18J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKb-6d-CWQ">
-                                <rect key="frame" x="349" y="11" width="80" height="80"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" image="instructions-icon.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zY-2R-CQg">
                                 <rect key="frame" x="600" y="1" width="100" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -367,6 +360,9 @@
                                 <state key="normal" image="instructions-icon.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="infoButtonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="U3N-9Z-WnJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycs-FD-MWC">
                                 <rect key="frame" x="595" y="-10" width="100" height="100"/>
@@ -991,8 +987,8 @@
         <image name="recordButton.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aNF-1k-as1"/>
-        <segue reference="8gX-XX-hEh"/>
+        <segue reference="bIa-gG-DgK"/>
         <segue reference="KQO-Hk-tCG"/>
+        <segue reference="8gX-XX-hEh"/>
     </inferredMetricsTieBreakers>
 </document>
