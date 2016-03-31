@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import MobileCoreServices
 
 class DesignerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -48,20 +51,57 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
         self.presentViewController(imageFromSource, animated: true, completion: nil)
     }
     
+    @IBAction func recordVideo(sender:UIButton) {
+        let videoFromSource = UIImagePickerController()
+        videoFromSource.delegate = self
+        videoFromSource.allowsEditing = true;
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            videoFromSource.sourceType = .Camera
+            videoFromSource.mediaTypes = [kUTTypeMovie as String]
+            videoFromSource.videoQuality = .TypeMedium
+            videoFromSource.videoMaximumDuration = 30.0
+            self.presentViewController(videoFromSource, animated: true, completion: nil)
+        }
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        
-        if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
-            
-            let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
-            if let data = UIImagePNGRepresentation(image) {
-                let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
-                data.writeToFile(filename, atomically: true)
+        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+        if let type:AnyObject = mediaType {
+            if type is String {
+                let stringType = type as! String
                 
+                if stringType == kUTTypeMovie as String {
+                    print("is a movie")
+                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                    if let url = urlOfVideo {
+                        print("url of video")
+                        var dataReadingError: NSError?
+                        let videoData: NSData?
+                        do {
+                            videoData = try NSData(contentsOfURL: url, options: .MappedRead)
+                        } catch let error as NSError {
+                            print("videoData error")
+                            dataReadingError = error
+                            videoData = nil
+                        }
+                        let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
+                        videoData!.writeToFile(filename, atomically: true)
+                    }
+                }
+                else
+                {
+                    let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                    let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
+                    if let data = UIImagePNGRepresentation(image) {
+                        let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+                        data.writeToFile(filename, atomically: true)
+                        
+                    }
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
             }
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     

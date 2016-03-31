@@ -84,7 +84,6 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @IBAction func infoButtonPressed(sender : UIButton) {
-        print("hello")
         self.playVideo()
     }
     

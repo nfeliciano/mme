@@ -244,6 +244,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-nq-i5B">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72R-mB-wwF">
+                                <rect key="frame" x="349" y="11" width="80" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="instructions-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="infoButtonPressed:" destination="viT-2d-iQn" eventType="touchUpInside" id="mwj-jH-a0r"/>
+                                    <action selector="infoPressed:" destination="cwm-3g-lGu" eventType="touchUpInside" id="Seh-yl-pcd"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seG-3f-h2X">
                                 <rect key="frame" x="308" y="243" width="162" height="162"/>
                                 <state key="normal" title="Introduction" backgroundImage="button_bg.png">
@@ -260,16 +271,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="viT-2d-iQn" kind="push" identifier="stationTwo" id="Ms2-9e-4By"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-Gu-xOv">
-                                <rect key="frame" x="69" y="0.0" width="120" height="120"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" image="back-icon.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButton:" destination="cwm-3g-lGu" eventType="touchUpInside" id="XC2-H9-18J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zY-2R-CQg">
@@ -304,6 +305,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="viT-2d-iQn" kind="push" identifier="stationThree" id="oCc-8R-sbT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-Gu-xOv">
+                                <rect key="frame" x="65" y="0.0" width="120" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" image="back-icon.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="cwm-3g-lGu" eventType="touchUpInside" id="XC2-H9-18J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -500,7 +511,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSL-by-HTf">
-                                <rect key="frame" x="246" y="289" width="276" height="120"/>
+                                <rect key="frame" x="246" y="410" width="276" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Introduction to App">
                                     <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -511,7 +522,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMN-mg-pgN">
-                                <rect key="frame" x="274" y="485" width="220" height="120"/>
+                                <rect key="frame" x="274" y="569" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Station 1">
                                     <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -522,7 +533,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-Z6-3Pm">
-                                <rect key="frame" x="274" y="693" width="220" height="120"/>
+                                <rect key="frame" x="274" y="730" width="220" height="120"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Station 2">
                                     <color key="titleColor" red="0.092191703617572784" green="0.60578107833862305" blue="0.11515151709318161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -577,6 +588,16 @@
                                 </state>
                                 <connections>
                                     <action selector="stagePressed:" destination="d9g-X1-Kl1" eventType="touchUpInside" id="mW8-N1-Xa6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ui-MK-HYc">
+                                <rect key="frame" x="249" y="257" width="270" height="120"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Record Guide Video">
+                                    <color key="titleColor" red="0.092191703619999996" green="0.60578107830000005" blue="0.1151515171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="d9g-X1-Kl1" eventType="touchUpInside" id="F6m-KZ-sLP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -987,8 +1008,8 @@
         <image name="recordButton.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bIa-gG-DgK"/>
-        <segue reference="KQO-Hk-tCG"/>
+        <segue reference="MJy-k1-deb"/>
         <segue reference="8gX-XX-hEh"/>
+        <segue reference="KQO-Hk-tCG"/>
     </inferredMetricsTieBreakers>
 </document>

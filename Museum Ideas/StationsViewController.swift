@@ -65,4 +65,8 @@ class StationsViewController: UIViewController {
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func infoPressed(sender:UIButton) {
+        
+    }
 }
