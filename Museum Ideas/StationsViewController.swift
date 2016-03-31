@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import MobileCoreServices
 import Darwin
 
 class StationsViewController: UIViewController {
@@ -14,7 +17,7 @@ class StationsViewController: UIViewController {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var backgroundImage : UIImageView!
     
-    override func viewDidLoad() {1
+    override func viewDidLoad() {
         super.viewDidLoad()
         let defaults = NSUserDefaults.standardUserDefaults()
         if let title = defaults.objectForKey("activityName") {
@@ -36,6 +39,8 @@ class StationsViewController: UIViewController {
                 button.setTitle(stationName, forState: .Normal)
             }
         }
+        
+        self.playVideo()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,11 +67,27 @@ class StationsViewController: UIViewController {
         }
     }
     
+    func playVideo() {
+        let fileManager = NSFileManager.defaultManager()
+        
+        let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
+        if (fileManager.fileExistsAtPath(vidPath)) {
+            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+            let playerCtrl = AVPlayerViewController()
+            playerCtrl.player = player
+            self.presentViewController(playerCtrl, animated: true) {
+                playerCtrl.player?.play()
+            }
+        } else {
+            //TODO
+        }
+    }
+    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func infoPressed(sender:UIButton) {
-        
+        self.playVideo()
     }
 }

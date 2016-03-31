@@ -66,39 +66,44 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
-        if let type:AnyObject = mediaType {
-            if type is String {
-                let stringType = type as! String
-                
-                if stringType == kUTTypeMovie as String {
-                    print("is a movie")
-                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
-                    if let url = urlOfVideo {
-                        print("url of video")
-                        var dataReadingError: NSError?
-                        let videoData: NSData?
-                        do {
-                            videoData = try NSData(contentsOfURL: url, options: .MappedRead)
-                        } catch let error as NSError {
-                            print("videoData error")
-                            dataReadingError = error
-                            videoData = nil
+        print("didfinish")
+        if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
+            print("yes")
+            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            if let type:AnyObject = mediaType {
+                if type is String {
+                    print("isVideo")
+                    let stringType = type as! String
+                    
+                    if stringType == kUTTypeMovie as String {
+                        print("is a movie")
+                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                        if let url = urlOfVideo {
+                            print("url of video")
+                            var dataReadingError: NSError?
+                            let videoData: NSData?
+                            do {
+                                videoData = try NSData(contentsOfURL: url, options: .MappedRead)
+                            } catch let error as NSError {
+                                print("videoData error")
+                                dataReadingError = error
+                                videoData = nil
+                            }
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
+                            videoData!.writeToFile(filename, atomically: true)
                         }
-                        let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
-                        videoData!.writeToFile(filename, atomically: true)
                     }
-                }
-                else
-                {
-                    let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-                    let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
-                    if let data = UIImagePNGRepresentation(image) {
-                        let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
-                        data.writeToFile(filename, atomically: true)
+                    else
+                    {
+                        let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                        let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
+                        if let data = UIImagePNGRepresentation(image) {
+                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
+                            data.writeToFile(filename, atomically: true)
+                            
+                        }
                         
                     }
-                    
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }
             }
