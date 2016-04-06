@@ -152,6 +152,16 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
         return true
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentCharacterCount = textField.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + string.characters.count - range.length
+        return newLength <= 20
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toBooks") {
             return;

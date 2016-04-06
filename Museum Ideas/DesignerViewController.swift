@@ -110,6 +110,32 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.text?.characters.count > 0 {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults .setObject(textField.text, forKey: "station\(station)-name")
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentCharacterCount = textField.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + string.characters.count - range.length
+        return newLength <= 30
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toBooks") {
             return;

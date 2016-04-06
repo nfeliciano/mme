@@ -73,6 +73,20 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentCharacterCount = textField.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + string.characters.count - range.length
+        if (textField.tag < 10) {
+            return newLength <= 30
+        } else {
+            return newLength <= 80
+        }
+    }
+    
     @IBAction func backButtonPressed(sender : UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
     }
