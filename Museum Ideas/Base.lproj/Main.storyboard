@@ -208,10 +208,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Su-JDe">
-                                <rect key="frame" x="116" y="262" width="537" height="635"/>
+                                <rect key="frame" x="140" y="352" width="488" height="578"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your text here" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-E4-XXR">
-                                <rect key="frame" x="116" y="111" width="537" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your text here" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="GbC-E4-XXR">
+                                <rect key="frame" x="124" y="113" width="537" height="143"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -347,7 +347,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Station" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aQ-Og-sbG">
-                                <rect key="frame" x="310" y="958" width="149" height="39"/>
+                                <rect key="frame" x="30" y="958" width="709" height="39"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -404,7 +404,7 @@
                                 <rect key="frame" x="184" y="126" width="400" height="61"/>
                                 <subviews>
                                     <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRS-9P-siM">
-                                        <rect key="frame" x="35" y="0.0" width="61" height="61"/>
+                                        <rect key="frame" x="25" y="0.0" width="80" height="61"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -414,7 +414,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ig-2t-95Z">
-                                        <rect key="frame" x="302" y="0.0" width="61" height="61"/>
+                                        <rect key="frame" x="305" y="0.0" width="80" height="61"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                         <state key="normal" title="V">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -424,7 +424,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zd3-Vz-c9W">
-                                        <rect key="frame" x="214" y="0.0" width="61" height="61"/>
+                                        <rect key="frame" x="210" y="0.0" width="80" height="61"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -434,7 +434,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dl-Xt-scl">
-                                        <rect key="frame" x="118" y="0.0" width="61" height="61"/>
+                                        <rect key="frame" x="115" y="0.0" width="80" height="61"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1032,6 +1032,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="8gX-XX-hEh"/>
         <segue reference="KQO-Hk-tCG"/>
-        <segue reference="MJy-k1-deb"/>
+        <segue reference="aNF-1k-as1"/>
     </inferredMetricsTieBreakers>
 </document>
