@@ -72,8 +72,7 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
         
         self.pageViewController.setViewControllers(viewControllers as! [PageViewController], direction: .Forward, animated: true, completion: nil)
         self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-        
-//        self.pageImages = NSArray(objects: "station\(sender.tag)-image1.png", "station\(sender.tag)-image2.png", "station\(sender.tag)-image3.png")
+
         self.view.addSubview(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
         self.backButton.titleLabel?.textColor = UIColor.blackColor()
@@ -86,6 +85,7 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         var vc: PageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! PageViewController
+        vc.station = station
         vc.pageLabelText = self.pageTitles[index] as! String
         vc.pageIndex = index
         vc.imageFile = self.pageImages[index] as! String

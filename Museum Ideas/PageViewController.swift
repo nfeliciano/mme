@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-class PageViewController: UIViewController {
+class PageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pageText: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -17,6 +19,7 @@ class PageViewController: UIViewController {
     var titleText: String!
     var pageLabelText: String!
     var imageFile: String!
+    var station: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,14 @@ class PageViewController: UIViewController {
             }
         }
         self.pageText.text = self.pageLabelText;
+        
+        if (pageIndex == 6) {
+            let tap : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(PageViewController.playMovie(_:)))
+            tap.delegate = self
+            tap.numberOfTapsRequired = 1
+            self.imageView.userInteractionEnabled = true
+            self.imageView.addGestureRecognizer(tap)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -44,8 +55,19 @@ class PageViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func backButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func playMovie(sender:UIGestureRecognizer) {
+        print("playmovie")
+        let fileManager = NSFileManager.defaultManager()
+        
+        let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
+        if (fileManager.fileExistsAtPath(vidPath)) {
+            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+            let playerCtrl = AVPlayerViewController()
+            playerCtrl.player = player
+            self.presentViewController(playerCtrl, animated: true) {
+                playerCtrl.player?.play()
+            }
+        }
     }
     
     func getDocumentsDirectory() -> NSString {
