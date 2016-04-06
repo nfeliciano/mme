@@ -81,9 +81,9 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         }
         let newLength = currentCharacterCount + string.characters.count - range.length
         if (textField.tag < 10) {
-            return newLength <= 30
+            return newLength <= 70
         } else {
-            return newLength <= 80
+            return newLength <= 300
         }
     }
     
