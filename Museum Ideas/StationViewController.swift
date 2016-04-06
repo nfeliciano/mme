@@ -294,6 +294,8 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                                     replaceView.image = UIImage(named: "videoPlayButton.png")!
                                 }
                             }
+                            
+                            UISaveVideoAtPathToSavedPhotosAlbum(url.path!, nil, nil, nil);
                         }
                     }
                     else
@@ -312,6 +314,7 @@ class StationViewController: UIViewController, UINavigationControllerDelegate, U
                                     replaceView.image = image
                                 }
                             }
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
                     }
                 }
