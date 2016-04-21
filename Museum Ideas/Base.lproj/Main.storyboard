@@ -166,12 +166,23 @@
                                     <action selector="stationPressed:" destination="hq3-W0-wHB" eventType="touchUpInside" id="t0a-Am-Ela"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCC-Is-tjE">
+                                <rect key="frame" x="512" y="7" width="256" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Publish">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="generatePDFButtonPressed:" destination="hq3-W0-wHB" eventType="touchUpInside" id="7FQ-wc-UPc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="JKV-X4-aPh"/>
                     <connections>
                         <outlet property="backButton" destination="Hmi-yq-pEP" id="aZM-Ff-Vch"/>
+                        <outlet property="publishButton" destination="HCC-Is-tjE" id="z6x-fc-Gcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vAl-fy-xWh" userLabel="First Responder" sceneMemberID="firstResponder"/>

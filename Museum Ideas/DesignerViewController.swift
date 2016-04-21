@@ -91,6 +91,7 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
                             }
                             let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
                             videoData!.writeToFile(filename, atomically: true)
+                            UISaveVideoAtPathToSavedPhotosAlbum(url.path!, nil, nil, nil);
                         }
                     }
                     else
@@ -100,8 +101,8 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
                         if let data = UIImagePNGRepresentation(image) {
                             let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
                             data.writeToFile(filename, atomically: true)
-                            
                         }
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         
                     }
                     self.dismissViewControllerAnimated(true, completion: nil)

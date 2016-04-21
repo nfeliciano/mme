@@ -113,6 +113,7 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
                     }
                 }
             }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             
             self.dismissViewControllerAnimated(true, completion: nil)
         }

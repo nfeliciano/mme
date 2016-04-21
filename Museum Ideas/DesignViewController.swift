@@ -115,7 +115,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                             }
                             let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-guide.mp4")
                             videoData!.writeToFile(filename, atomically: true)
-                            
+                            UISaveVideoAtPathToSavedPhotosAlbum(url.path!, nil, nil, nil);
                             
                         }
                     }
@@ -126,7 +126,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
                         if let data = UIImagePNGRepresentation(image) {
                             let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-stationPhoto.png")
                             data.writeToFile(filename, atomically: true)
-                            
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
                     }
                 }

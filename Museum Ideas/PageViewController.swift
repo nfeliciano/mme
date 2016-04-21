@@ -24,7 +24,7 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         let fileManager = NSFileManager.defaultManager()
-        let path = getDocumentsDirectory().stringByAppendingPathComponent(imageFile)
+        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent(imageFile)
         self.imageView.contentMode = .ScaleAspectFill
         if (fileManager.fileExistsAtPath(path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
@@ -68,11 +68,5 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 playerCtrl.player?.play()
             }
         }
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
 }
