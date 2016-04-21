@@ -159,7 +159,7 @@ class DesignViewController: UIViewController, UINavigationControllerDelegate, UI
             return false
         }
         let newLength = currentCharacterCount + string.characters.count - range.length
-        return newLength <= 20
+        return newLength <= 30
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
