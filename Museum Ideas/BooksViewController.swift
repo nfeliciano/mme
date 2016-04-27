@@ -19,6 +19,8 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource, UID
     
     var station: Int! = -1
     
+    var activity : UIActivityIndicatorView!
+    
     /*pages:
     1 - Intro with stage photo
     2 - Sample photo 1
@@ -79,7 +81,7 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource, UID
         self.backButton.titleLabel?.textColor = UIColor.blackColor()
         self.view.bringSubviewToFront(backButton)
         
-//        self.publishButton.hidden = false
+        self.publishButton.hidden = false
         self.view.bringSubviewToFront(self.publishButton)
     }
     
@@ -126,33 +128,56 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource, UID
         return 0
     }
     
+    func startActivity(completion:() -> ()) {
+        let bg = UIImageView(frame: self.view.frame)
+        bg.backgroundColor = UIColor.grayColor()
+        bg.alpha = 0.8
+        bg.tag = 1
+        self.view.addSubview(bg)
+        
+        activity = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activity.center = self.view.center
+        activity.hidesWhenStopped = true
+        activity.activityIndicatorViewStyle = .WhiteLarge
+        bg.addSubview(activity)
+        activity.startAnimating()
+    }
+    
     @IBAction func generatePDFButtonPressed(sender:UIButton) {
         if (station == -1) { return }
-        self.pageViewController.removeFromParentViewController()
-        self.pageViewController.view.removeFromSuperview()
-        let fileName:String = "Book_Station_\(station)"
-        let documentsDirectory:NSString = CommonMethods().getDocumentsDirectory()
-        let pdf = documentsDirectory.stringByAppendingString(fileName)
+//        self.pageViewController.removeFromParentViewController()
+//        self.pageViewController.view.removeFromSuperview()
         
-//        self.performSelectorOnMainThread(Selector(generatePDFWithFilePath(pdf)), withObject: nil, waitUntilDone: true)
-        self.generatePDFWithFilePath(pdf)
+        let fileName:String = "Book_Station_\(station).pdf"
+        let documentsDirectory:NSString = CommonMethods().getDocumentsDirectory()
+        let pdf = documentsDirectory.stringByAppendingPathComponent(fileName)
+//        self.startActivity { () -> () in
+            self.generatePDFWithFilePath(pdf)
+//        }
     }
     
     func generatePDFWithFilePath(file:String) {
+        
         let pageSize = CGSize(width: 768, height: 1024)
-        UIGraphicsBeginPDFContextToFile(file, CGRectZero, nil);
+        
+        UIGraphicsBeginPDFContextToFile(file, CGRectZero, [:]);
         var currentPage:Int = 0
         repeat {
+            if (currentPage == 6) {
+                currentPage += 1
+                continue
+            }
             UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, pageSize.width, pageSize.height), nil)
             self.drawPageNumber(currentPage)
             self.drawBorder()
-//            self.drawTextForPage(currentPage)
-//            self.drawImageForPage(currentPage)
+            self.drawTextForPage(currentPage)
+            self.drawImageForPage(currentPage)
             currentPage += 1
         } while (currentPage != 8)
         UIGraphicsEndPDFContext()
         
-        self.uploadToIBooks(file)
+        
+         self.uploadToIBooks(file)
     }
     
     func drawBorder() {
@@ -166,44 +191,45 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource, UID
     }
     
     func drawPageNumber(pageNumber:Int) {
-        let pageNumberString:String = "Page \(pageNumber)"
+        var pageNumberString:String = "Page \(pageNumber+1)"
+        if (pageNumber == 7) {
+            pageNumberString = "Page \(pageNumber)"
+        }
         let pageSize = CGSize(width: 768, height: 1024)
         
-        let stringRenderingRect = CGRectMake(10, pageSize.height-40.0, pageSize.width-20.0, 16.0)
+        let stringRenderingRect = CGRectMake(30, pageSize.height-40.0, pageSize.width-20.0, 16.0)
         pageNumberString.drawInRect(stringRenderingRect, withAttributes: nil)
     }
     
     func drawTextForPage(pageNumber:Int) {
         let pageSize = CGSize(width: 768, height: 1024)
         if let textToDraw:String = self.pageTitles.objectAtIndex(pageNumber) as! String {
-            let stringRenderingRect = CGRectMake(10, pageSize.height-40.0, pageSize.width-20.0, 16.0)
-            textToDraw.drawInRect(stringRenderingRect, withAttributes: nil)
+            let stringRenderingRect = CGRectMake(124, 113, 500, 30.0)
+            let font = UIFont.init(name: "Optima-Bold", size: 24.0)
+            let attr = [NSFontAttributeName:font!] as [String : AnyObject]
+            textToDraw.drawInRect(stringRenderingRect, withAttributes: attr)
         }
     }
     
     func drawImageForPage(pageNumber:Int) {
-//        let pageSize = CGSize(width: 768, height: 1024)
-//        if (pageNumber == 0) {
-//            print("argh")
-//            let image = UIImage(named:"activityStage.png")
-//            image!.drawInRect(CGRectMake((pageSize.width - 300)/2, 300, 300,400))
-//        } else {
-//            let image: UIImage = UIImage(contentsOfFile: self.pageImages.objectAtIndex(pageNumber) as! String)!
-//            image.drawInRect(CGRectMake((pageSize.width - 300)/2, 300, 300,400))
-//        }
+        let pageSize = CGSize(width: 768, height: 1024)
+        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent(self.pageImages.objectAtIndex(pageNumber) as! String)
+        let fileManager = NSFileManager.defaultManager()
+        if (fileManager.fileExistsAtPath(path)) {
+            let image: UIImage = UIImage(contentsOfFile: path)!
+            image.drawInRect(CGRectMake((pageSize.width - 400)/2, 250, 450,600))
+        }
     }
     
     func uploadToIBooks(pdfFile:String) {
         let pdfData = NSURL.fileURLWithPath(pdfFile)
-        let didShow: Bool
-        let documentInteractionController = UIDocumentInteractionController(URL: pdfData)
-        documentInteractionController.delegate = self
-        documentInteractionController.UTI = "com.adobe.pdf"
-        documentInteractionController.presentOpenInMenuFromRect(self.publishButton.frame, inView: self.view, animated: true)
         
-        
-//        let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
-//        activityViewController.popoverPresentationController?.sourceView = self.view
-//        presentViewController(activityViewController, animated: true, completion: nil)
+        let bg = self.view.viewWithTag(1)
+        bg?.removeFromSuperview()
+        activity.stopAnimating()
+        activity.removeFromSuperview()
+        let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.publishButton
+        presentViewController(activityViewController, animated: true, completion: nil)
     }
 }

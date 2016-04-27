@@ -28,7 +28,6 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.imageView.contentMode = .ScaleAspectFill
         if (fileManager.fileExistsAtPath(path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
-//            let rotated: UIImage = UIImage(CGImage: image.CGImage!, scale: 1, orientation: .Right)
             self.imageView.image = image
         } else {
             if (imageFile == "videoPlayButton.png") {
