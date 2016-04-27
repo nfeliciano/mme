@@ -224,10 +224,10 @@ class BooksViewController: UIViewController, UIPageViewControllerDataSource, UID
     func uploadToIBooks(pdfFile:String) {
         let pdfData = NSURL.fileURLWithPath(pdfFile)
         
-        let bg = self.view.viewWithTag(1)
-        bg?.removeFromSuperview()
-        activity.stopAnimating()
-        activity.removeFromSuperview()
+//        let bg = self.view.viewWithTag(1)
+//        bg?.removeFromSuperview()
+//        activity.stopAnimating()
+//        activity.removeFromSuperview()
         let activityViewController = UIActivityViewController(activityItems: [pdfData], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.publishButton
         presentViewController(activityViewController, animated: true, completion: nil)
