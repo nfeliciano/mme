@@ -10,6 +10,30 @@ import UIKit
 import AVKit
 import AVFoundation
 import MobileCoreServices
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class DesignerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -19,8 +43,8 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let title = defaults.objectForKey("activityName") {
+        let defaults = UserDefaults.standard
+        if let title = defaults.object(forKey: "activityName") {
             self.titleField.text = title as! String
         }
 
@@ -32,44 +56,44 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backButtonPressed(sender : UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender : UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func stagePressed(sender : UIButton) {
+    @IBAction func stagePressed(_ sender : UIButton) {
         let imageFromSource = UIImagePickerController()
         imageFromSource.delegate = self
         imageFromSource.allowsEditing = false;
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.camera
             
         } else {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.photoLibrary
         }
         
-        self.presentViewController(imageFromSource, animated: true, completion: nil)
+        self.present(imageFromSource, animated: true, completion: nil)
     }
     
-    @IBAction func recordVideo(sender:UIButton) {
+    @IBAction func recordVideo(_ sender:UIButton) {
         let videoFromSource = UIImagePickerController()
         videoFromSource.delegate = self
         videoFromSource.allowsEditing = true;
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            videoFromSource.sourceType = .Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            videoFromSource.sourceType = .camera
             videoFromSource.mediaTypes = [kUTTypeMovie as String]
-            videoFromSource.videoQuality = .TypeMedium
+            videoFromSource.videoQuality = .typeMedium
             videoFromSource.videoMaximumDuration = 30.0
-            self.presentViewController(videoFromSource, animated: true, completion: nil)
+            self.present(videoFromSource, animated: true, completion: nil)
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("didfinish")
-        if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
+        if (picker.sourceType == UIImagePickerControllerSourceType.camera || picker.sourceType == UIImagePickerControllerSourceType.photoLibrary) {
             print("yes")
-            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType] as AnyObject?
             if let type:AnyObject = mediaType {
                 if type is String {
                     print("isVideo")
@@ -77,21 +101,21 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
                     
                     if stringType == kUTTypeMovie as String {
                         print("is a movie")
-                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as? URL
                         if let url = urlOfVideo {
                             print("url of video")
                             var dataReadingError: NSError?
-                            let videoData: NSData?
+                            let videoData: Data?
                             do {
-                                videoData = try NSData(contentsOfURL: url, options: .MappedRead)
+                                videoData = try Data(contentsOf: url, options: .mappedRead)
                             } catch let error as NSError {
                                 print("videoData error")
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
-                            videoData!.writeToFile(filename, atomically: true)
-                            UISaveVideoAtPathToSavedPhotosAlbum(url.path!, nil, nil, nil);
+                            let filename = CommonMethods().getDocumentsDirectory().appendingPathComponent("mainVideoGuide.mp4")
+                            try? videoData!.write(to: URL(fileURLWithPath: filename), options: [.atomic])
+                            UISaveVideoAtPathToSavedPhotosAlbum(url.path, nil, nil, nil);
                         }
                     }
                     else
@@ -99,35 +123,35 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
                         let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
                         if let data = UIImagePNGRepresentation(image) {
-                            let filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
-                            data.writeToFile(filename, atomically: true)
+                            let filename = CommonMethods().getDocumentsDirectory().appendingPathComponent("activityStage.png")
+                            try? data.write(to: URL(fileURLWithPath: filename), options: [.atomic])
                         }
                         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         
                     }
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.characters.count > 0 {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults .setObject(textField.text, forKey: "station\(station)-name")
+            let defaults = UserDefaults.standard
+            defaults .set(textField.text, forKey: "station\(station)-name")
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let currentCharacterCount = textField.text?.characters.count ?? 0
         if (range.length + range.location > currentCharacterCount){
@@ -137,11 +161,11 @@ class DesignerViewController: UIViewController, UIImagePickerControllerDelegate,
         return newLength <= 30
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toBooks") {
             return;
         }
-        let station:DesignViewController = segue.destinationViewController as! DesignViewController
+        let station:DesignViewController = segue.destination as! DesignViewController
         if (segue.identifier == "stationIntro") {
             station.station = 0;
         } else if (segue.identifier == "stationOne") {

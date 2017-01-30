@@ -19,31 +19,31 @@ class StationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let title = defaults.objectForKey("activityName") {
+        let defaults = UserDefaults.standard
+        if let title = defaults.object(forKey: "activityName") {
             self.titleLabel.text = title as! String
         }
-        let fileManager = NSFileManager.defaultManager()
-        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("activityStage.png")
-        if (fileManager.fileExistsAtPath(path)) {
+        let fileManager = FileManager.default
+        let path = CommonMethods().getDocumentsDirectory().appendingPathComponent("activityStage.png")
+        if (fileManager.fileExists(atPath: path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
             self.backgroundImage.image = image
         }
         
-        for (var i = 1; i <= 4; i += 1) {
+        for i in 1...5 {
             let button : UIButton = self.view.viewWithTag(i) as! UIButton
             var tag: Int = i
             if (i == 4) { tag = 0 }
 //            defaults .setObject(textField.text, forKey: "station\(tag)-name")
-            if let stationName = defaults.stringForKey("station\(tag)-name") {
-                button.setTitle(stationName, forState: .Normal)
+            if let stationName = defaults.string(forKey: "station\(tag)-name") {
+                button.setTitle(stationName, for: UIControlState())
             }
         }
         
         self.playVideo()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -51,11 +51,11 @@ class StationsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toBooks") {
             return;
         }
-        let station:StationViewController = segue.destinationViewController as! StationViewController
+        let station:StationViewController = segue.destination as! StationViewController
         if (segue.identifier == "stationOne") {
             station.station = 1;
         } else if (segue.identifier == "stationTwo") {
@@ -68,14 +68,14 @@ class StationsViewController: UIViewController {
     }
     
     func playVideo() {
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
-        let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("mainVideoGuide.mp4")
-        if (fileManager.fileExistsAtPath(vidPath)) {
-            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+        let vidPath = CommonMethods().getDocumentsDirectory().appendingPathComponent("mainVideoGuide.mp4")
+        if (fileManager.fileExists(atPath: vidPath)) {
+            let player = AVPlayer(url: URL(fileURLWithPath: vidPath))
             let playerCtrl = AVPlayerViewController()
             playerCtrl.player = player
-            self.presentViewController(playerCtrl, animated: true) {
+            self.present(playerCtrl, animated: true) {
                 playerCtrl.player?.play()
             }
         } else {
@@ -83,11 +83,11 @@ class StationsViewController: UIViewController {
         }
     }
     
-    @IBAction func backButton(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func infoPressed(sender:UIButton) {
+    @IBAction func infoPressed(_ sender:UIButton) {
         self.playVideo()
     }
 }

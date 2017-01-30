@@ -23,10 +23,10 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let fileManager = NSFileManager.defaultManager()
-        let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent(imageFile)
-        self.imageView.contentMode = .ScaleAspectFill
-        if (fileManager.fileExistsAtPath(path)) {
+        let fileManager = FileManager.default
+        let path = CommonMethods().getDocumentsDirectory().appendingPathComponent(imageFile)
+        self.imageView.contentMode = .scaleAspectFill
+        if (fileManager.fileExists(atPath: path)) {
             let image: UIImage = UIImage(contentsOfFile: path)!
             self.imageView.image = image
         } else {
@@ -41,12 +41,12 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let tap : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(PageViewController.playMovie(_:)))
             tap.delegate = self
             tap.numberOfTapsRequired = 1
-            self.imageView.userInteractionEnabled = true
+            self.imageView.isUserInteractionEnabled = true
             self.imageView.addGestureRecognizer(tap)
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -54,16 +54,16 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.didReceiveMemoryWarning()
     }
     
-    func playMovie(sender:UIGestureRecognizer) {
+    func playMovie(_ sender:UIGestureRecognizer) {
         print("playmovie")
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
-        let vidPath = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-video.mp4")
-        if (fileManager.fileExistsAtPath(vidPath)) {
-            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+        let vidPath = CommonMethods().getDocumentsDirectory().appendingPathComponent("station\(station)-video.mp4")
+        if (fileManager.fileExists(atPath: vidPath)) {
+            let player = AVPlayer(url: URL(fileURLWithPath: vidPath))
             let playerCtrl = AVPlayerViewController()
             playerCtrl.player = player
-            self.presentViewController(playerCtrl, animated: true) {
+            self.present(playerCtrl, animated: true) {
                 playerCtrl.player?.play()
             }
         }

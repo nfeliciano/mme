@@ -20,28 +20,28 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*2, self.scrollView.frame.size.height);
+        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width*2, height: self.scrollView.frame.size.height);
         self.scrollView.delegate = self
         
-        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
-        menuRightGesture.direction = .Right
+        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SamplePhotosViewController.menuSwipe(_:)))
+        menuRightGesture.direction = .right
         self.menuView.addGestureRecognizer(menuRightGesture)
         
-        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
-        menuLeftGesture.direction = .Left
+        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SamplePhotosViewController.menuSwipe(_:)))
+        menuLeftGesture.direction = .left
         self.menuView.addGestureRecognizer(menuLeftGesture)
         
         //        self.playIntroVideo()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        for (var i = 0; i < 2; i++) {
-            let fileManager = NSFileManager.defaultManager()
-            let path = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-samplePhoto\(i+1).png")
+        for i in 0 ..< 2 {
+            let fileManager = FileManager.default
+            let path = CommonMethods().getDocumentsDirectory().appendingPathComponent("station\(station)-samplePhoto\(i+1).png")
             let image: UIImage
-            if (fileManager.fileExistsAtPath(path)) {
+            if (fileManager.fileExists(atPath: path)) {
                 let initialImage : UIImage = UIImage(contentsOfFile: path)!
 //                image = UIImage(CGImage: initialImage.CGImage!, scale: 1, orientation: .Right)
                 image = initialImage
@@ -58,7 +58,7 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {
+    func addImagetoScrollViewAtPage(_ imageToAdd: UIImage, page: Int) {
         for imageView in self.scrollView.subviews {
             if (imageView.tag == page+10) {
                 let replaceView : UIImageView = imageView as! UIImageView
@@ -66,32 +66,32 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
                 return
             }
         }
-        let image : UIImageView = UIImageView(frame: CGRectMake(0, 0, 450, 600))
+        let image : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 450, height: 600))
         let frame : CGRect = self.scrollView.frame
-        image.center = CGPointMake(frame.size.width/2 + (CGFloat(page) * frame.size.width), frame.size.height/2)
+        image.center = CGPoint(x: frame.size.width/2 + (CGFloat(page) * frame.size.width), y: frame.size.height/2)
         image.image = imageToAdd
         image.tag = page+10;
         self.scrollView .addSubview(image)
     }
     
-    @IBAction func cameraPressed(sender: UIButton) {
+    @IBAction func cameraPressed(_ sender: UIButton) {
         
         let imageFromSource = UIImagePickerController()
         imageFromSource.delegate = self
         imageFromSource.allowsEditing = false;
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.camera
             
         } else {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.photoLibrary
         }
         
-        self.presentViewController(imageFromSource, animated: true, completion: nil)
+        self.present(imageFromSource, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if (picker.sourceType == UIImagePickerControllerSourceType.camera || picker.sourceType == UIImagePickerControllerSourceType.photoLibrary) {
             
             let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let image : UIImage = CommonMethods().rotateCameraImageToProperOrientation(temp, maxResolution: 1024)
@@ -99,11 +99,11 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
             if let data = UIImagePNGRepresentation(image) {
                 var filename = ""
                 if (scrollView.contentOffset.x == 0) {
-                    filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-samplePhoto1.png")
+                    filename = CommonMethods().getDocumentsDirectory().appendingPathComponent("station\(station)-samplePhoto1.png")
                 } else {
-                    filename = CommonMethods().getDocumentsDirectory().stringByAppendingPathComponent("station\(station)-samplePhoto2.png")
+                    filename = CommonMethods().getDocumentsDirectory().appendingPathComponent("station\(station)-samplePhoto2.png")
                 }
-                data.writeToFile(filename, atomically: true)
+                try? data.write(to: URL(fileURLWithPath: filename), options: [.atomic])
                 
                 //add image to scrollview here
                 for imageView in self.scrollView.subviews {
@@ -115,16 +115,16 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
             }
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func controlButtonPressed(sender: UIButton) {
+    @IBAction func controlButtonPressed(_ sender: UIButton) {
         let toPage : Int = sender.tag-101
-        self.scrollView .setContentOffset(CGPointMake(self.scrollView.frame.size.width * CGFloat(toPage), 0), animated: true)
+        self.scrollView .setContentOffset(CGPoint(x: self.scrollView.frame.size.width * CGFloat(toPage), y: 0), animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToGuide" {
             
         } else if segue.identifier == "segueToBooks" {
@@ -132,18 +132,18 @@ class SamplePhotosViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
-    @IBAction func backButton(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func menuSwipe(sender: UISwipeGestureRecognizer) {
-        if (sender.direction == .Left) {
+    func menuSwipe(_ sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .left) {
             if (self.scrollView.contentOffset.x < self.scrollView.contentSize.width - self.scrollView.frame.size.width) {
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x+self.scrollView.frame.size.width, 0), animated: true)
+                self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x+self.scrollView.frame.size.width, y: 0), animated: true)
             }
         } else {
             if (self.scrollView.contentOffset.x != 0) {
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x-self.scrollView.frame.size.width, 0), animated: true)
+                self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x-self.scrollView.frame.size.width, y: 0), animated: true)
             }
         }
     }

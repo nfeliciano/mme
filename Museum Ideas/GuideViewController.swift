@@ -18,7 +18,7 @@ class GuideViewController: UIViewController, UINavigationControllerDelegate, UII
         self.playIntroVideo()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -27,11 +27,11 @@ class GuideViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     func playIntroVideo() {
-        let path = NSBundle.mainBundle().pathForResource("MuseumDesignIntro", ofType:"mp4")
-        let player = AVPlayer(URL: NSURL(fileURLWithPath: path!))
+        let path = Bundle.main.path(forResource: "MuseumDesignIntro", ofType:"mp4")
+        let player = AVPlayer(url: URL(fileURLWithPath: path!))
         let playerController = AVPlayerViewController()
         playerController.player = player
-        self.presentViewController(playerController, animated: true) {
+        self.present(playerController, animated: true) {
             player.play()
         }
     }

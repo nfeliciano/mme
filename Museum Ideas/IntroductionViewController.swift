@@ -22,37 +22,37 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width*2, self.scrollView.frame.size.height);
+        self.scrollView.contentSize = CGSize(width: self.scrollView.frame.size.width*2, height: self.scrollView.frame.size.height);
         self.scrollView.delegate = self
         
-        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
-        menuRightGesture.direction = .Right
+        let menuRightGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.menuSwipe(_:)))
+        menuRightGesture.direction = .right
         self.menuView.addGestureRecognizer(menuRightGesture)
         
-        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("menuSwipe:"))
-        menuLeftGesture.direction = .Left
+        let menuLeftGesture : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.menuSwipe(_:)))
+        menuLeftGesture.direction = .left
         self.menuView.addGestureRecognizer(menuLeftGesture)
         
 //        self.playIntroVideo()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let fileManager = NSFileManager.defaultManager()
-        let path = getDocumentsDirectory().stringByAppendingPathComponent("myImage.png")
+        let fileManager = FileManager.default
+        let path = getDocumentsDirectory().appendingPathComponent("myImage.png")
         let image: UIImage
-        if (fileManager.fileExistsAtPath(path)) {
+        if (fileManager.fileExists(atPath: path)) {
             let initialImage : UIImage = UIImage(contentsOfFile: path)!
-            image = UIImage(CGImage: initialImage.CGImage!, scale: 1, orientation: .Right)
+            image = UIImage(cgImage: initialImage.cgImage!, scale: 1, orientation: .right)
         } else {
             image = UIImage(named: "emptyImage.png")!
         }
         self.addImagetoScrollViewAtPage(image, page: 0)
         
-        let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("myVideo.mp4")
+        let vidPath = getDocumentsDirectory().appendingPathComponent("myVideo.mp4")
         let vidImage: UIImage
-        if (fileManager.fileExistsAtPath(vidPath)) {
+        if (fileManager.fileExists(atPath: vidPath)) {
 //            let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
 //            let playerCtrl = AVPlayerViewController()
 //            playerCtrl.player = player
@@ -71,7 +71,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Dispose of any resources that can be recreated.
     }
     
-    func addImagetoScrollViewAtPage(imageToAdd: UIImage, page: Int) {
+    func addImagetoScrollViewAtPage(_ imageToAdd: UIImage, page: Int) {
         for imageView in self.scrollView.subviews {
             if (imageView.tag == page+10) {
                 let replaceView : UIImageView = imageView as! UIImageView
@@ -79,116 +79,116 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 return
             }
         }
-        let image : UIImageView = UIImageView(frame: CGRectMake(0, 0, 450, 600))
+        let image : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 450, height: 600))
         let frame : CGRect = self.scrollView.frame
-        image.center = CGPointMake(frame.size.width/2 + (CGFloat(page) * frame.size.width), frame.size.height/2)
+        image.center = CGPoint(x: frame.size.width/2 + (CGFloat(page) * frame.size.width), y: frame.size.height/2)
         image.image = imageToAdd
         image.tag = page+10;
         self.scrollView .addSubview(image)
         
         if (page == 1) {
-            let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("playMyVideo:"))
+            let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.playMyVideo(_:)))
             tapGesture.numberOfTapsRequired = 1
             image.addGestureRecognizer(tapGesture)
-            image.userInteractionEnabled = true
+            image.isUserInteractionEnabled = true
         }
     }
     
-    func playMyVideo(sender: UITapGestureRecognizer) {
-        let fileManager = NSFileManager.defaultManager()
+    func playMyVideo(_ sender: UITapGestureRecognizer) {
+        let fileManager = FileManager.default
 
-        let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("myVideo.mp4")
-        if (fileManager.fileExistsAtPath(vidPath)) {
-            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+        let vidPath = getDocumentsDirectory().appendingPathComponent("myVideo.mp4")
+        if (fileManager.fileExists(atPath: vidPath)) {
+            let player = AVPlayer(url: URL(fileURLWithPath: vidPath))
             let playerCtrl = AVPlayerViewController()
             playerCtrl.player = player
-            self.presentViewController(playerCtrl, animated: true) {
+            self.present(playerCtrl, animated: true) {
                 playerCtrl.player?.play()
             }
         }
     }
     
     func playIntroVideo() {
-        let path = NSBundle.mainBundle().pathForResource("intro_start", ofType: "MOV")
-        let url = NSURL.fileURLWithPath(path!)
-        let player = AVPlayer(URL: url)
+        let path = Bundle.main.path(forResource: "intro_start", ofType: "MOV")
+        let url = URL(fileURLWithPath: path!)
+        let player = AVPlayer(url: url)
         let playerCtrl = AVPlayerViewController()
         playerCtrl.player = player
-        self.presentViewController(playerCtrl, animated: true) {
+        self.present(playerCtrl, animated: true) {
             playerCtrl.player?.play()
         }
 
     }
     
-    @IBAction func playVideo(sender: UIButton) {
+    @IBAction func playVideo(_ sender: UIButton) {
 //        self.playIntroVideo()
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         
-        let vidPath = getDocumentsDirectory().stringByAppendingPathComponent("activityGuide.mp4")
-        if (fileManager.fileExistsAtPath(vidPath)) {
-            let player = AVPlayer(URL: NSURL(fileURLWithPath: vidPath))
+        let vidPath = getDocumentsDirectory().appendingPathComponent("activityGuide.mp4")
+        if (fileManager.fileExists(atPath: vidPath)) {
+            let player = AVPlayer(url: URL(fileURLWithPath: vidPath))
             let playerCtrl = AVPlayerViewController()
             playerCtrl.player = player
-            self.presentViewController(playerCtrl, animated: true) {
+            self.present(playerCtrl, animated: true) {
                 playerCtrl.player?.play()
             }
         }
     }
     
-    @IBAction func cameraPressed(sender: UIButton) {
+    @IBAction func cameraPressed(_ sender: UIButton) {
         
         let imageFromSource = UIImagePickerController()
         imageFromSource.delegate = self
         imageFromSource.allowsEditing = false;
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.camera
             
         } else {
-            imageFromSource.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.photoLibrary
         }
         
-        self.presentViewController(imageFromSource, animated: true, completion: nil)
+        self.present(imageFromSource, animated: true, completion: nil)
     }
     
-    @IBAction func videoPressed(sender: UIButton) {
+    @IBAction func videoPressed(_ sender: UIButton) {
         let videoFromSource = UIImagePickerController()
         videoFromSource.delegate = self
         videoFromSource.allowsEditing = true;
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            videoFromSource.sourceType = .Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            videoFromSource.sourceType = .camera
             videoFromSource.mediaTypes = [kUTTypeMovie as String]
-            videoFromSource.videoQuality = .TypeMedium
+            videoFromSource.videoQuality = .typeMedium
             videoFromSource.videoMaximumDuration = 30.0
-            self.presentViewController(videoFromSource, animated: true, completion: nil)
+            self.present(videoFromSource, animated: true, completion: nil)
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if (picker.sourceType == UIImagePickerControllerSourceType.Camera || picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if (picker.sourceType == UIImagePickerControllerSourceType.camera || picker.sourceType == UIImagePickerControllerSourceType.photoLibrary) {
             
-            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType] as AnyObject?
             if let type:AnyObject = mediaType {
                 if type is String {
                     let stringType = type as! String
                     
                     if stringType == kUTTypeMovie as String {
                         print("is a movie")
-                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+                        let urlOfVideo = info[UIImagePickerControllerMediaURL] as? URL
                         if let url = urlOfVideo {
                             print("url of video")
                             var dataReadingError: NSError?
-                            let videoData: NSData?
+                            let videoData: Data?
                             do {
-                                videoData = try NSData(contentsOfURL: url, options: .MappedRead)
+                                videoData = try Data(contentsOf: url, options: .mappedRead)
                             } catch let error as NSError {
                                 print("videoData error")
                                 dataReadingError = error
                                 videoData = nil
                             }
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("myVideo.mp4")
-                            videoData!.writeToFile(filename, atomically: true)
+                            let filename = getDocumentsDirectory().appendingPathComponent("myVideo.mp4")
+                            try? videoData!.write(to: URL(fileURLWithPath: filename), options: [.atomic])
                             
                             //add image to scrollview here
                             for imageView in self.scrollView.subviews {
@@ -205,8 +205,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                         let temp : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
                         
                         if let data = UIImagePNGRepresentation(temp) {
-                            let filename = getDocumentsDirectory().stringByAppendingPathComponent("myImage.png")
-                            data.writeToFile(filename, atomically: true)
+                            let filename = getDocumentsDirectory().appendingPathComponent("myImage.png")
+                            try? data.write(to: URL(fileURLWithPath: filename), options: [.atomic])
                             
                             //add image to scrollview here
                             for imageView in self.scrollView.subviews {
@@ -220,16 +220,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }
             }
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func controlButtonPressed(sender: UIButton) {
+    @IBAction func controlButtonPressed(_ sender: UIButton) {
         let toPage : Int = sender.tag-101
-        self.scrollView .setContentOffset(CGPointMake(self.scrollView.frame.size.width * CGFloat(toPage), 0), animated: true)
+        self.scrollView .setContentOffset(CGPoint(x: self.scrollView.frame.size.width * CGFloat(toPage), y: 0), animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToGuide" {
             
         } else if segue.identifier == "segueToBooks" {
@@ -237,7 +237,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
         if identifier == "segueToGuide" {
             
         } else if identifier == "segueToBooks" {
@@ -245,44 +245,44 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    @IBAction func backButton(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func menuSwipe(sender: UISwipeGestureRecognizer) {
-        if (sender.direction == .Left) {
+    func menuSwipe(_ sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .left) {
             if (self.scrollView.contentOffset.x < self.scrollView.contentSize.width - self.scrollView.frame.size.width) {
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x+self.scrollView.frame.size.width, 0), animated: true)
+                self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x+self.scrollView.frame.size.width, y: 0), animated: true)
             }
         } else {
             if (self.scrollView.contentOffset.x != 0) {
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentOffset.x-self.scrollView.frame.size.width, 0), animated: true)
+                self.scrollView.setContentOffset(CGPoint(x: self.scrollView.contentOffset.x-self.scrollView.frame.size.width, y: 0), animated: true)
             }
         }
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.changeInputIcon()
     }
     
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         self.changeInputIcon()
     }
     
     func changeInputIcon() {
         if scrollView.contentOffset.x == 0 {
-            self.cameraButton!.hidden = false;
-            self.recordButton!.hidden = true;
+            self.cameraButton!.isHidden = false;
+            self.recordButton!.isHidden = true;
         } else {
-            self.cameraButton!.hidden = true;
-            self.recordButton!.hidden = false;
+            self.cameraButton!.isHidden = true;
+            self.recordButton!.isHidden = false;
         }
     }
     
     func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        return documentsDirectory
+        return documentsDirectory as NSString
     }
     
     

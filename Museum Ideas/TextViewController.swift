@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TextViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,16 +40,16 @@ class TextViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         for view in self.view.subviews {
             if let textField = view as? UITextField {
-                if let text = defaults.stringForKey("station\(station)-activityText\(textField.tag)") {
+                if let text = defaults.string(forKey: "station\(station)-activityText\(textField.tag)") {
                     textField.text = text
                 }
             }
         }
         
-        if let title = defaults.objectForKey("station\(station)-name") {
+        if let title = defaults.object(forKey: "station\(station)-name") {
             self.bookTitle.text = "Book for \(title as! String)"
         }
         
@@ -51,29 +75,29 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.endOfDocument)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
         if (textField.center.y > self.view.center.y) {
             animateViewMoving(true, moveValue: 200)
         }
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.characters.count > 0 {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults .setObject(textField.text, forKey: "station\(station)-activityText\(textField.tag)")
+            let defaults = UserDefaults.standard
+            defaults .set(textField.text, forKey: "station\(station)-activityText\(textField.tag)")
         }
         if (textField.center.y > self.view.center.y) {
             animateViewMoving(false, moveValue: 200)
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let currentCharacterCount = textField.text?.characters.count ?? 0
         if (range.length + range.location > currentCharacterCount){
@@ -87,17 +111,17 @@ class TextViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func backButtonPressed(sender : UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender : UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
-        var movementDuration:NSTimeInterval = 0.3
-        var movement:CGFloat = ( up ? -moveValue : moveValue)
+    func animateViewMoving (_ up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
         UIView.beginAnimations( "animateView", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(movementDuration )
-        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
         UIView.commitAnimations()
     }
     
